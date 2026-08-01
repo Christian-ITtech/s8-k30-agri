@@ -4,6 +4,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+     font-family:'Inter',sans-serif;
 }
 
 body{
@@ -350,5 +351,217 @@ TOPBAR
     color:gray;
 
     font-size:13px;
+
+}
+h1{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    color:var(--primary);
+
+}
+/* ============================
+   BURGER + RESPONSIVE
+============================ */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:998;
+}
+
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* cacher le burger sur PC */
+
+.menu-btn{
+    display:none;
+}
+
+/* ============================
+   TABLETTE + MOBILE
+============================ */
+
+@media (max-width:768px){
+
+    .dashboard{
+        display:block;
+    }
+
+    .sidebar{
+
+        position:fixed;
+
+        top:0;
+        left:-300px;
+
+        width:280px;
+        height:100vh;
+
+        background:white;
+
+        transition:.35s ease;
+
+        z-index:999;
+
+        overflow-y:auto;
+
+        box-shadow:0 0 30px rgba(0,0,0,.15);
+
+    }
+
+    .sidebar.active{
+
+        left:0;
+
+    }
+
+    .main-content{
+
+        width:100%;
+
+        padding:20px;
+
+    }
+
+    .menu-btn{
+
+        display:flex;
+
+        justify-content:center;
+
+        align-items:center;
+
+        width:48px;
+
+        height:48px;
+
+        border:none;
+
+        background:white;
+
+        border-radius:12px;
+
+        box-shadow:var(--shadow);
+
+        cursor:pointer;
+
+        font-size:18px;
+
+    }
+
+    .topbar{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        gap:15px;
+
+        flex-wrap:wrap;
+
+    }
+
+    .left{
+
+        width:100%;
+
+    }
+
+    .search{
+
+        width:100%;
+
+    }
+
+    .right{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+    }
+
+}
+
+/* ============================
+   PETITS MOBILES
+============================ */
+
+@media(max-width:480px){
+
+    .main-content{
+        padding:15px;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .user{
+        display:none;
+    }
+
+}
+.close-sidebar{
+
+    display:none;
+
+    position:absolute;
+
+    top:15px;
+
+    right:15px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#f3f4f6;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.close-sidebar:hover{
+
+    background:#ef4444;
+
+    color:#fff;
+
+}
+
+@media (max-width:768px){
+
+    .close-sidebar{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+    }
 
 }
