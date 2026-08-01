@@ -99,8 +99,36 @@ def calculer_indicateurs_globaux(livraisons, ventes, paiements):
             "nb_livraisons_mois": 2
         }
     """
-         # TODO : à compléter
-    pass
+    total_livre = 0
+    valeur_livraisons = 0
+    membres_vus = []
+ 
+    for livraison in livraisons:
+        total_livre = total_livre + livraison["quantite"]
+        prix = PRIX_ACHAT_KG[livraison["culture"]]
+        valeur_livraisons = valeur_livraisons + livraison["quantite"] * prix
+ 
+        membre_id = livraison["membre_id"]
+        if membre_id not in membres_vus:
+            membres_vus.append(membre_id)
+ 
+    total_vendu = 0
+    for vente in ventes:
+        total_vendu = total_vendu + vente["quantite"]
+ 
+    total_paiements = 0
+    for paiement in paiements:
+        total_paiements = total_paiements + paiement["montant"]
+ 
+    stock_total = total_livre - total_vendu
+    montant_du_total = valeur_livraisons - total_paiements
+ 
+    return {
+        "stock_total": stock_total,
+        "montant_du_total": montant_du_total,
+        "nb_membres_actifs": len(membres_vus),
+        "nb_livraisons_mois": len(livraisons),
+    }
 
 
 def calculer_livraisons_par_jour_semaine(livraisons):
@@ -119,8 +147,19 @@ def calculer_livraisons_par_jour_semaine(livraisons):
         entrée -> [{"date": "2026-07-08", "quantite": 40}, {"date": "2026-07-08", "quantite": 10}]
         sortie -> {"2026-07-08": 50}
     """
-         # TODO : à compléter
-    pass
+    resultat = {}
+ 
+    for livraison in livraisons:
+        date = livraison["date"]
+        quantite = livraison["quantite"]
+ 
+        if date in resultat:
+            resultat[date] = resultat[date] + quantite
+        else:
+            resultat[date] = quantite
+ 
+    return resultat
+ 
 
 
 def classer_membres_par_production(livraisons):
@@ -157,8 +196,27 @@ def classer_membres_par_production(livraisons):
             {"membre_id": 2, "volume_total": 50},
         ]
     """
-         # TODO : à compléter
-    pass
+    totaux_par_membre = {}
+
+    for livraison in livraisons:
+        membre_id = livraison["membre_id"]
+        quantite = livraison["quantite"]
+
+        if membre_id in totaux_par_membre:
+            totaux_par_membre[membre_id] += quantite
+        else:
+            totaux_par_membre[membre_id] = quantite
+
+    classement = []
+    for membre_id in totaux_par_membre:
+        classement.append({
+            "membre_id": membre_id,
+            "volume_total": totaux_par_membre[membre_id]
+        })
+
+    classement.sort(key=lambda x: x["volume_total"], reverse=True)
+
+    return classement
 
 
 def calculer_statistiques_globales(livraisons, ventes):
@@ -193,8 +251,28 @@ def calculer_statistiques_globales(livraisons, ventes):
 
         sortie -> {"Manioc": {"volume_total": 100, "valeur_totale": 11000}}
     """
-         # TODO : à compléter
-    pass
+    resultat = {}
+
+    for livraison in livraisons:
+        culture = livraison["culture"]
+        quantite = livraison["quantite"]
+
+        if culture not in resultat:
+            resultat[culture] = {"volume_total": 0, "valeur_totale": 0}
+
+        resultat[culture]["volume_total"] += quantite
+
+    for vente in ventes:
+        culture = vente["culture"]
+        quantite = vente["quantite"]
+        prix_kg = vente["prix_kg"]
+
+        if culture not in resultat:
+            resultat[culture] = {"volume_total": 0, "valeur_totale": 0}
+
+        resultat[culture]["valeur_totale"] += quantite * prix_kg
+
+    return resultat
 
 
 def generer_indicateurs_rapport_bailleur(livraisons, ventes, paiements):
@@ -239,8 +317,39 @@ def generer_indicateurs_rapport_bailleur(livraisons, ventes, paiements):
         sortie -> {"volume_total_periode": 150, "montant_ventes_periode": 17600,
                    "taux_regularite_paiements": 50, "nb_membres_actifs": 2}
     """
-         # TODO : à compléter
-    pass
+
+    volume_total_periode = 0
+    membres_actifs = []
+
+    for livraison in livraisons:
+        volume_total_periode += livraison["quantite"]
+        membre_id = livraison["membre_id"]
+        if membre_id not in membres_actifs:
+            membres_actifs.append(membre_id)
+
+    montant_ventes_periode = 0
+    for vente in ventes:
+        montant_ventes_periode += vente["quantite"] * vente["prix_kg"]
+
+    membres_payes = []
+    for paiement in paiements:
+        membre_id = paiement["membre_id"]
+        if membre_id in membres_actifs and membre_id not in membres_payes:
+            membres_payes.append(membre_id)
+
+    nb_membres_actifs = len(membres_actifs)
+
+    if nb_membres_actifs == 0:
+        taux_regularite_paiements = 0
+    else:
+        taux_regularite_paiements = round(len(membres_payes) / nb_membres_actifs * 100)
+
+    return {
+        "volume_total_periode": volume_total_periode,
+        "montant_ventes_periode": montant_ventes_periode,
+        "taux_regularite_paiements": taux_regularite_paiements,
+        "nb_membres_actifs": nb_membres_actifs,
+    }
 
 
 def identifier_top_acheteur(ventes, acheteurs):
@@ -264,9 +373,36 @@ def identifier_top_acheteur(ventes, acheteurs):
         acheteurs -> [{"id": 1, "nom": "Christiane Nkaya"}, {"id": 2, "nom": "Talangaï"}]
         sortie    -> {"acheteur_nom": "Christiane Nkaya", "volume_total": 150}
     """
-         # TODO : à compléter
-    pass
 
+    if not ventes:
+        return {"acheteur_nom": None, "volume_total": 0}
+
+    volumes_par_acheteur = {}
+
+    for vente in ventes:
+        acheteur_id = vente["acheteur_id"]
+        quantite = vente["quantite"]
+
+        if acheteur_id in volumes_par_acheteur:
+            volumes_par_acheteur[acheteur_id] += quantite
+        else:
+            volumes_par_acheteur[acheteur_id] = quantite
+
+    top_acheteur_id = None
+    top_volume_total = -1
+
+    for acheteur_id in volumes_par_acheteur:
+        if volumes_par_acheteur[acheteur_id] > top_volume_total:
+            top_volume_total = volumes_par_acheteur[acheteur_id]
+            top_acheteur_id = acheteur_id
+
+    top_acheteur_nom = None
+    for acheteur in acheteurs:
+        if acheteur["id"] == top_acheteur_id:
+            top_acheteur_nom = acheteur["nom"]
+            break
+
+    return {"acheteur_nom": top_acheteur_nom, "volume_total": top_volume_total}
 
 # ========================================================================
 # ZONE B — Membres & Livraisons
