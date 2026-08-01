@@ -713,8 +713,19 @@ def calculer_stock_disponible(livraisons, ventes):
 
         sortie -> {"Manioc": 70, "Maïs": 0, "Arachide": 0}
     """
-         # TODO : à compléter
-    pass
+    resultat = {"Manioc": 0, "Maïs": 0, "Arachide": 0}
+
+    for livraison in livraisons:
+        culture = livraison["culture"]
+        quantite = livraison["quantite"]
+        resultat[culture] += quantite
+
+    for vente in ventes:
+        culture = vente["culture"]
+        quantite = vente["quantite"]
+        resultat[culture] -= quantite
+
+    return resultat
 
 
 def verifier_stock_avant_vente(vente, stock_disponible):
@@ -743,9 +754,12 @@ def verifier_stock_avant_vente(vente, stock_disponible):
                                     {"Manioc": 50})
           -> True  (cas limite : égalité exacte, la vente est acceptée)
     """
-         # TODO : à compléter
-    pass
 
+    culture = vente["culture"]
+    quantite = vente["quantite"]
+
+    return quantite <= stock_disponible.get(culture, 0)
+    
 
 def calculer_marge_vente(vente):
     """
@@ -771,9 +785,14 @@ def calculer_marge_vente(vente):
 
         sortie -> 10500
     """
-         # TODO : à compléter
-    pass
+    culture = vente["culture"]
+    quantite = vente["quantite"]
+    prix_kg = vente["prix_kg"]
 
+    prix_achat = PRIX_ACHAT_KG[culture]
+    marge = (prix_kg - prix_achat) * quantite
+
+    return marge
 
 def verifier_paiement_valide(paiement, solde_du):
     """
@@ -799,9 +818,15 @@ def verifier_paiement_valide(paiement, solde_du):
         paiement={"montant": 50000}, solde_du=20000
         -> ["Le montant dépasse le solde dû (20000 FCFA)."]
     """
-         # TODO : à compléter
-    pass
+    anomalies = []
+    montant = paiement["montant"]
 
+    if montant <= 0:
+        anomalies.append("Le montant doit être strictement positif.")
+    if montant > solde_du:
+        anomalies.append(f"Le montant dépasse le solde dû ({solde_du} FCFA).")
+
+    return anomalies
 
 def calculer_moyenne_prix_vente(ventes, culture):
     """
@@ -836,9 +861,19 @@ def calculer_moyenne_prix_vente(ventes, culture):
 
         sortie -> 210
     """
-         # TODO : à compléter
-    pass
 
+    total_quantite = 0
+    total_valeur = 0
+
+    for vente in ventes:
+        if vente["culture"] == culture:
+            total_quantite += vente["quantite"]
+            total_valeur += vente["quantite"] * vente["prix_kg"]
+
+    if total_quantite == 0:
+        return 0
+
+    return total_valeur // total_quantite
 
 # ========================================================================
 # ZONE D — Authentification (nouveau module)
@@ -879,9 +914,16 @@ def authentifier_utilisateur(nom_utilisateur, mot_de_passe, utilisateurs):
         authentifier_utilisateur("smalonga", "mauvais_mdp", utilisateurs)
         -> None
     """
-         # TODO : à compléter
-    pass
-
+    for utilisateur in utilisateurs:
+        if (utilisateur["nom_utilisateur"] == nom_utilisateur and
+                utilisateur["mot_de_passe"] == mot_de_passe):
+            return {
+                "nom_utilisateur": utilisateur["nom_utilisateur"],
+                "role": utilisateur["role"],
+                "nom_complet": utilisateur["nom_complet"],
+                "membre_id": utilisateur["membre_id"]
+            }
+    return None
 
 def verifier_acces_role(role, action):
     """
@@ -907,5 +949,6 @@ def verifier_acces_role(role, action):
         verifier_acces_role("Trésorière", "enregistrer_vente")    -> False
         verifier_acces_role("Livreur",    "tableau_de_bord")      -> False  (rôle inconnu)
     """
-         # TODO : à compléter
-    pass
+    if role not in ACTIONS_PAR_ROLE:
+        return False
+    return action in ACTIONS_PAR_ROLE[role]
