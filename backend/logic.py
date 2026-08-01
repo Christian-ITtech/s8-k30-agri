@@ -450,8 +450,22 @@ def calculer_solde_membre(membre_id, livraisons, paiements):
 
         sortie -> 23000
     """
-         # TODO : à compléter
-    pass
+    total_livraisons = 0
+    total_paiements = 0
+
+    for livraison in livraisons:
+        if livraison["membre_id"] == membre_id:
+            culture = livraison["culture"]
+            quantite = livraison["quantite"]
+            prix_achat = PRIX_ACHAT_KG[culture]
+            total_livraisons += quantite * prix_achat
+
+    for paiement in paiements:
+        if paiement["membre_id"] == membre_id:
+            total_paiements += paiement["montant"]
+
+    solde = total_livraisons - total_paiements
+    return solde
 
 
 def detecter_membres_inactifs(membres, livraisons, jours_seuil=90):
@@ -481,9 +495,14 @@ def detecter_membres_inactifs(membres, livraisons, jours_seuil=90):
 
         sortie -> [{"membre_id": 2, "nom": "Sandra Malonga"}]
     """
-         # TODO : à compléter
-    pass
+    membres_inactifs = []
+    membres_actifs_ids = {livraison["membre_id"] for livraison in livraisons}
 
+    for membre in membres:
+        if membre["id"] not in membres_actifs_ids:
+            membres_inactifs.append({"membre_id": membre["id"], "nom": membre["nom"]})
+
+    return membres_inactifs
 
 def detecter_anomalie_livraison(livraison):
     """
@@ -517,8 +536,14 @@ def detecter_anomalie_livraison(livraison):
         sortie -> []
     """
     anomalies = []
-         # TODO : à compléter
-    pass
+    if livraison["quantite"] <= 0:
+        anomalies.append("Quantité invalide : doit être strictement positive.")
+    if livraison["culture"] not in PRIX_ACHAT_KG:
+        anomalies.append(f"Culture inconnue : {livraison['culture']}.")
+    if not livraison["membre_id"]:
+        anomalies.append("Aucun membre rattaché à cette livraison.")
+
+    return anomalies
 
 
 def generer_recu(membre_nom, montant):
@@ -539,9 +564,10 @@ def generer_recu(membre_nom, montant):
         generer_recu("Jean Mabiala", 0)
           -> "Aucun montant à verser pour Jean Mabiala."
     """
-         # TODO : à compléter
-    pass
-
+    if montant <= 0:
+        return f"Aucun montant à verser pour {membre_nom}."
+    else:
+        return f"Reçu - {membre_nom} : paiement de {montant} FCFA effectué."
 
 def calculer_historique_paiements_membre(membre_id, paiements):
     """
@@ -564,8 +590,9 @@ def calculer_historique_paiements_membre(membre_id, paiements):
         sortie    -> [{"membre_id": 1, "montant": 15000, "date": "2026-07-14"},
                       {"membre_id": 1, "montant": 5000, "date": "2026-07-05"}]
     """
-         # TODO : à compléter
-    pass
+    historique = [paiement for paiement in paiements if paiement["membre_id"] == membre_id]
+    historique.sort(key=lambda x: x["date"], reverse=True)
+    return historique
 
 
 def rechercher_membre_similaire(nom_complet, membres):
@@ -602,8 +629,13 @@ def rechercher_membre_similaire(nom_complet, membres):
         rechercher_membre_similaire("Marie Koumba", membres)
         -> None   (aucun membre existant ne porte ce nom)
     """
-         # TODO : à compléter
-    pass
+    nom_normalise = " ".join(nom_complet.split()).lower()
+    for membre in membres:
+        if "nom" in membre:
+            nom_membre = " ".join(membre["nom"].split()).lower()
+            if nom_membre == nom_normalise:
+                return membre
+    return None
 
 
 def valider_nouveau_membre(donnees):
@@ -638,8 +670,17 @@ def valider_nouveau_membre(donnees):
         donnees = {"nom": "Koumba", "prenom": "Marie", "village": "Séo", "contact": "064111222"}
         sortie -> []
     """
-         # TODO : à compléter
-    pass
+    anomalies = []
+    if not donnees.get("nom"):
+        anomalies.append("Le nom est obligatoire.")
+    if not donnees.get("prenom"):
+        anomalies.append("Le prénom est obligatoire.")
+    if not donnees.get("village"):
+        anomalies.append("Le village est obligatoire.")
+    if not donnees.get("contact"):
+        anomalies.append("Le contact est obligatoire.")
+
+    return anomalies
 
 
 # ========================================================================
