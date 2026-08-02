@@ -3,38 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriCoop Connect — Ventes & Stock</title>
+  <title>K30 Agri — Ventes & Stock</title>
   <link rel="stylesheet" href="ventes.css">
+  <link rel="stylesheet" href="../composants/slider.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuBtn = document.getElementById("menu-btn");
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.querySelector(".overlay");
+
+      if (!menuBtn || !sidebar || !overlay) return;
+
+      menuBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("active");
+      });
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) {
+          sidebar.classList.remove("active");
+          overlay.classList.remove("active");
+        }
+      });
+    });
+  </script>
+   <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
-  <!-- NAVIGATION — TODO (Dev FS5) -->
+ <div class="overlay"></div>
+<div class="dashboard">
 
-  <main>
-    <!-- =====================================================================
-         CARTES STOCK — TODO (Dev FS5)
-         Le contenu est injecté par main.js (une carte par culture avec
-         badge et barre de remplissage). Le dev stylise .card, .badge,
-         .barre-stock-fond, .barre-stock-remplissage.
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
 
-         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
-         ===================================================================== -->
+    <aside class="sidebar"  id="sidebar" >
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            <div class="logo-text">
+                <h2>K30-AGRI</h2>
+                <span>Administration</span>
+            </div>
+            
+        </div>
+            <h6>Coopérative Maraîchère de Kintele</h6>
+            <br>
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="../dashboard/dashboard.html">
+                     <i class="fa-solid fa-house"></i>
+                        Tableau de bord
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../membres/membres.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        Membres
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../livraisons/livraisons.html">
+                        <i class="fa-solid fa-truck-fast "></i>
+                        Livraisons
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../paiements/paiements.html">
+                        <i class="fa-solid fa-money-bill-1-wave"></i>
+                        Paiements
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="../ventes/ventes.html">
+                        <i class="fa-solid fa-dolly"></i>
+                        Ventes et Stock
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../statistiques/statistiques.html">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        Stactistiques
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- ========================= -->
+    <!-- CONTENU -->
+    <!-- ========================= -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div class="left">
+
+                <button class="menu-btn" id="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Rechercher une livraison...">
+
+                </div>
+
+            </div>
+
+            <div class="right">
+
+                <button class="icon-btn">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+
+                <button class="icon-btn">
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+
+                <div class="user">
+
+                    <img
+                        src="assets/avatar.jpg"
+                        alt="Utilisateur">
+
+                    <div>
+
+                        <h4>Jean Mukendi</h4>
+                        <span>Administrateur</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+  
     <div id="cartes-stock"></div>
 
-    <!-- =====================================================================
-         TABLEAU DES VENTES — TODO (Dev FS5)
+         <div class="grid-2">
 
-         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
-         ===================================================================== -->
+    <div class="card">
+      <h2>Nouvelle vente</h2>
+      <form id="form-vente">
+
+        <label for="v-acheteur">Acheteur</label>
+        <input type="text" id="v-acheteur" placeholder="ex. Mme Nkaya (Poto-Poto)" required>
+
+        <label for="v-produit">Produit</label>
+        <select id="v-produit" required>
+          <option value="Manioc">Manioc</option>
+          <option value="Maïs">Maïs</option>
+          <option value="Arachide">Arachide</option>
+        </select>
+
+        <label for="v-quantite">Quantité vendue (kg)</label>
+        <input type="number" id="v-quantite" min="1" step="1" required>
+
+        <label for="v-prix">Prix négocié (FCFA/kg)</label>
+        <input type="number" id="v-prix" min="1" step="1" placeholder="prix du jour" required>
+
+        <label for="v-date">Date</label>
+        <input type="date" id="v-date" required>
+
+        <button type="submit">Enregistrer la vente</button>
+
+      </form>
+    </div>
+
+    <div class="card">
+    <h2>Historique des ventes</h2>
     <table>
       <thead>
-        <!-- TODO (Dev FS5) : en-têtes (Acheteur, Culture, Quantité, Prix/kg) -->
+          <tr>
+            <th>Acheteur</th>
+            <th>Culture</th>
+            <th>Quantite</th>
+            <th>Prix/kg</th>
+          </tr>
       </thead>
       <tbody id="liste-ventes"></tbody>
     </table>
-  </main>
-
-  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+    </div>
+  </div>
+    </main>
+</div>
   <script src="../functions.js"></script>
   <script src="../main.js"></script>
 </body>
