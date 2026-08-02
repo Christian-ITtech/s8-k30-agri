@@ -9,25 +9,86 @@
 <body>
 
   <!-- =====================================================================
-       ÉCRAN DE CONNEXION — TODO (Dev FS1)
-       Construire une page de connexion centrée, sobre : logo/titre de
-       l'application, formulaire, message d'erreur. Layout : centré
-       verticalement et horizontalement, carte de connexion max ~400px de
-       large, responsive mobile.
+  ÉCRAN DE CONNEXION — TODO (Dev FS1)
+  Construire une page de connexion centrée, sobre : logo/titre de
+  l'application, formulaire, message d'erreur. Layout : centré
+  verticalement et horizontalement, carte de connexion max ~400px de
+  large, responsive mobile.
 
-       *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-       ===================================================================== -->
-  <main>
-    <form id="form-login">
-      <input type="text" id="l-nom-utilisateur" placeholder="Nom d'utilisateur">
-      <input type="password" id="l-mot-de-passe" placeholder="Mot de passe">
-      <button type="submit">Se connecter</button>
-    </form>
+  *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+  ===================================================================== -->
+  <main class="login-page">
 
-    <div id="message-erreur-login" hidden></div>
+    <!-- Partie Illustration -->
+    <section class="login-hero">
 
-    <!-- AIDE — TODO (Dev FS1) : rappel optionnel que les comptes sont créés
-         par la Secrétaire (pas d'auto-inscription) -->
+      <div class="hero-overlay"></div>
+
+      <img src="../assets/fonds.png" alt="Fond agricole" class="hero-image">
+
+      <div class="hero-content">
+
+        <img src="../assets/logo-complète.png" alt="Logo COMAKI" class="hero-logo">
+
+        <h1>AgriCoop Connect</h1>
+
+        <p>Plateforme agricole intelligente dédiée à la gestion numérique de la Coopérative Maraîchère de Kintélé.</p>
+
+      </div>
+
+    </section>
+
+    <!-- Carte Connexion -->
+
+    <section class="login-card">
+
+      <div class="card-header">
+
+        <img src="../assets/logo-complète.png" alt="Logo COMAKI" class="logo">
+
+        <h2>Bienvenue</h2>
+
+        <p>Connectez-vous pour accéder à votre espace de travail.</p>
+
+      </div>
+
+      <!-- IMPORTANT : conserver les IDs -->
+
+      <form id="form-login">
+
+        <div class="form-group">
+
+          <label for="l-nom-utilisateur">Nom d'utilisateur</label>
+
+          <input type="text" id="l-nom-utilisateur" placeholder="Nom d'utilisateur" autocomplete="username">
+
+        </div>
+
+        <div class="form-group">
+
+          <label for="l-mot-de-passe">Mot de passe</label>
+
+          <input type="password" id="l-mot-de-passe" placeholder="Mot de passe" autocomplete="current-password">
+
+        </div>
+
+        <button type="submit" class="btn-login">Se connecter</button>
+      </form>    
+
+      <div id="message-erreur-login" hidden></div>
+
+      <!-- AIDE — TODO (Dev FS1) : rappel optionnel que les comptes sont créés
+      par la Secrétaire (pas d'auto-inscription) -->
+
+      <div class="login-footer">
+
+        <p><strong>Sécurisé par COMAKI</strong></p>
+
+        <p>© 2026 COMAKI. Tous droits réservés.</p>
+
+      </div>
+
+    </section>
   </main>
 
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->

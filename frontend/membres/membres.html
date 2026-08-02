@@ -4,16 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AgriCoop Connect — Membres</title>
-
+    <title>AgriCoop Connect — Statistiques</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../composants/slider.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- CSS -->
@@ -22,185 +19,192 @@
 </head>
 
 <body>
- <div class="overlay"></div>
-<div class="dashboard">
 
-    <!-- ========================= -->
-    <!-- SIDEBAR -->
-    <!-- ========================= -->
+    <div class="overlay"></div>
 
-    <aside class="sidebar"  id="sidebar" >
+    <div class="dashboard">
 
-        <div class="logo">
+        <!-- ========================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================= -->
 
-            <div class="logo-icon">
-                <i class="fa-solid fa-seedling"></i>
+        <aside class="sidebar" id="sidebar">
+        
+            <div class="logo">
+        
+                <div class="logo-icon">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+        
+                <div class="logo-text">
+                    <h2>K30-AGRI</h2>
+                    <span>Administration</span>
+                </div>
+        
             </div>
-
-            <div class="logo-text">
-                <h2>K30-AGRI</h2>
-                <span>Administration</span>
-            </div>
-            
-        </div>
             <h6>Coopérative Maraîchère de Kintele</h6>
             <br>
-        <nav>
+            <nav>
+        
+                <ul>
+        
+                    <li>
+                        <a href="../dashboard/dashboard.html">
+                            <i class="fa-solid fa-house"></i>
+                            Tableau de bord
+                        </a>
+                    </li>
+        
+                    <li  class="active">
+                        <a href="../membres/membres.html">
+                            <i class="fa-solid fa-user-group"></i>
+                            Membres
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="../livraisons/livraisons.html">
+                            <i class="fa-solid fa-truck-fast "></i>
+                            Livraisons
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="../paiements/paiements.html">
+                            <i class="fa-solid fa-money-bill-1-wave"></i>
+                            Paiements
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="../ventes/ventes.html">
+                            <i class="fa-solid fa-dolly"></i>
+                            Ventes et Stock
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="../statistiques/statistiques.html">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            Stactistiques
+                        </a>
+                    </li>
+        
+        
+                </ul>
+        
+            </nav>
+        
+        </aside>
 
-            <ul>
+        <!-- ========================= -->
+        <!-- CONTENU -->
+        <!-- ========================= -->
+        <!-- NAVIGATION — TODO (Dev FS6) -->
 
-                <li>
-                    <a href="../dashboard/dashboard.html">
-                     <i class="fa-solid fa-house"></i>
-                        Tableau de bord
-                    </a>
-                </li>
+        <main class="main-content">
+            <header class="topbar">
 
-                <li class="active">
-                    <a href="../membres/membres.html">
-                        <i class="fa-solid fa-user-group"></i>
-                        Membres
-                    </a>
-                </li>
+                <div class="left">
 
-                <li>
-                    <a href="../livraisons/livraisons.html">
-                        <i class="fa-solid fa-truck-fast "></i>
-                        Livraisons
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../paiements/paiements.html">
-                        <i class="fa-solid fa-money-bill-1-wave"></i>
-                        Paiements
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../ventes/ventes.html">
-                        <i class="fa-solid fa-dolly"></i>
-                        Ventes et Stock
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../statistiques/statistiques.html">
-                        <i class="fa-solid fa-chart-pie"></i>
-                        Stactistiques
-                    </a>
-                </li>
+                    <button class="menu-btn" id="menu-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
 
 
-            </ul>
 
-        </nav>
-
-    </aside>
-
-    <!-- ========================= -->
-    <!-- CONTENU -->
-    <!-- ========================= -->
-
-    <main class="main-content">
-
-        <!-- HEADER -->
-        <header class="topbar">
-
-            <div class="left">
-
-                <button class="menu-btn" id="menu-btn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-                <div class="search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Rechercher...">
                 </div>
 
-            </div>
+                <div class="right">
 
-            <div class="right">
 
-                <button class="icon-btn">
-                    <i class="fa-regular fa-bell"></i>
-                </button>
+                    <div class="user">
 
-                <button class="icon-btn">
-                    <i class="fa-regular fa-envelope"></i>
-                </button>
+                        <img src="assets/avatar.jpg" alt="Utilisateur">
 
-                <div class="user">
-                    <img src="../dashboard/assets/avatar.jpg" alt="Utilisateur">
-                    <div>
-                        <h4>Jean Mukendi</h4>
-                        <span>Administrateur</span>
+                        <div>
+
+                            <h4>Jean Mukendi</h4>
+                            <span>Administrateur</span>
+
+                        </div>
+
                     </div>
+
+                </div>
+
+            </header>
+            <h1>Membres</h1>
+
+            <div class="global-members-formulaire">
+
+                <div class="liste-members-box">
+                        <!-- HEADER -->
+                        <select id="filtre-statut" class="filtre-statut">
+                            <option class="option" value="">Tous</option>
+                            <option class="option" value="À jour">À jour</option>
+                            <option class="option" value="En retard">En retard</option>
+                        </select>
+                        
+                        <input class="recherche" type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
+                        
+                        <!-- =====================================================================
+                                                     LISTE DES MEMBRES — TODO (Dev FS2)
+                                                     Le contenu est injecté par main.js. Le dev doit structurer le
+                                                     conteneur et styliser les éléments .membre-ligne, .badge.
+                                            
+                                                     *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+                                                     ===================================================================== -->
+                        <div class="liste-membres" id="liste-membres"></div>
+                </div>
+
+                <div class="formulaire">
+                        <!-- =====================================================================
+                                                     NOUVEAU MEMBRE — TODO (Dev FS2)
+                                                     Construire le formulaire de création d'un membre (module Membres,
+                                                     nouveau — section 4.1 du FRD). Les 4 champs sont obligatoires.
+                                                     Le village est un menu déroulant fermé (rempli par main.js depuis
+                                                     la liste de référence de la coopérative), pas un champ libre.
+                                            
+                                                     *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+                                                     ===================================================================== -->
+                        <form id="form-nouveau-membre">
+                            <input type="text" id="nm-prenom" placeholder="Prénom">
+                            <input type="text" id="nm-nom" placeholder="Nom">
+                            <select id="nm-village">
+                                <option value="">-- Choisir un village --</option>
+                            </select>
+                            <input type="text" id="nm-contact" placeholder="Contact (téléphone)">
+                            <button type="submit">Créer le membre</button>
+                        </form>
+                        
+                        <div id="erreurs-nouveau-membre" hidden></div>
+                        <div id="message-succes-nouveau-membre" hidden></div>
                 </div>
 
             </div>
 
-        </header>
-         <form id="form-nouveau-membre">
-          <input type="text" id="nm-prenom" placeholder="Prénom">
-          <input type="text" id="nm-nom" placeholder="Nom">
-          <select id="nm-village"><option value="">-- Choisir un village --</option></select>
-          <input type="text" id="nm-contact" placeholder="Contact (téléphone)">
-          <button type="submit">Créer le membre</button>
-        </form>
+               
+                    
+              
+     
 
-        <div id="erreurs-nouveau-membre" hidden></div>
-        <div id="message-succes-nouveau-membre" hidden></div>
 
-        <select id="filtre-statut" class="filtre-statut">
-          <option class="option" value="">Tous</option>
-          <option class="option" value="À jour">À jour</option>
-          <option class="option" value="En retard">En retard</option>
-        </select>
 
-        <input class="recherche" type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
 
-        <!-- =====================================================================
-             LISTE DES MEMBRES
-             Le contenu est injecté par main.js.
 
-             *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
-             ===================================================================== -->
-        <div class="liste-membres" id="liste-membres"></div>
 
-        <!-- =====================================================================
-             NOUVEAU MEMBRE
 
-             *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-             ===================================================================== -->
-       
-    </main>
-</div>
-<script>
-    
-const menuBtn = document.getElementById("menu-btn");
-const sidebar = document.getElementById("sidebar");
-const overlay = document.querySelector(".overlay");
 
-menuBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
-});
+        </main>
 
-overlay.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
-});
 
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-    }
-});
-</script>
-  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
-  <script src="../functions.js"></script>
-  <script src="../main.js"></script>
+    </div>
+
+    <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+    <script src="../composants/slider.js"></script>
+    <script src="../functions.js"></script>
+    <script src="../main.js"></script>
 </body>
+
 </html>
