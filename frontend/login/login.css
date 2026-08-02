@@ -1,0 +1,393 @@
+/* ======================================================
+  AGRICOOP CONNECT - LOGIN
+  Auteur : Jonathan Matondo
+  Sprint S8 - Akieni Academy
+====================================================== */
+
+/* ==========================
+  RESET
+========================== */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#F5F7FB;
+  color:#1F2937;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* ==========================
+  VARIABLES
+========================== */
+
+:root{
+  --primary:#16A34A;
+  --primary-dark:#15803D;
+  --secondary:#22C55E;
+  --white:#FFFFFF;
+  --background:#F5F7FB;
+  --border:#E5E7EB;
+  --text:#1F2937;
+  --gray:#6B7280;
+  --danger:#DC2626;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --radius:18px;
+  --transition:.3s ease;
+}
+
+/* ==========================
+  LAYOUT PRINCIPAL
+========================== */
+
+.login-page{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:0.9fr 1.1fr;
+  background:var(--background);
+}
+
+/* ==========================
+  HERO (Partie gauche)
+========================== */
+
+.login-hero{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+}
+.hero-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(
+    rgba(22,163,74,.78),
+    rgba(21,128,61,.72)
+  );
+  z-index:1;
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:80%;
+  max-width:520px;
+  color:white;
+  text-align:center;
+}
+.hero-logo{
+  width:180px;
+  margin-bottom:30px;
+}
+.hero-content h1{
+  font-size:2.4rem;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.hero-content p{
+  font-size:16px;
+  line-height:1.6;
+  opacity:.95;
+}
+
+/* ==========================
+   CARTE LOGIN
+========================== */
+
+.login-card{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:50px;
+  background:#ffffff;
+}
+
+/* ==========================
+   LOGIN CARD
+========================== */
+
+.login-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:35px 60px;
+  background:#ffffff;
+  height:100%;
+}
+.login-card > *{
+  width:100%;
+}
+.card-header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:25px;
+}
+.logo{
+  width:120px;
+  margin-bottom:15px;
+}
+.card-header h2{
+  font-size:2rem;
+  color:var(--primary);
+  font-weight:700;
+  margin-bottom:10px;
+}
+.card-header p{
+  color:var(--gray);
+  font-size:15px;
+  line-height:1.7;
+}
+#form-login{
+  width:100%;
+  max-width:500px;
+  background:var(--white);
+  padding:35px;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  margin:auto;
+  animation:fadeUp .8s ease;
+}
+
+/* ==========================
+  FORMULAIRE
+========================== */
+
+.form-group{
+  display:flex;
+  flex-direction:column;
+  margin-bottom:22px;
+}
+.form-group label{
+  font-size:14px;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.form-group input{
+  width:100%;
+  height:56px;
+  padding:0 18px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  outline:none;
+  background:#FAFAFA;
+  color:var(--text);
+  font-size:15px;
+  transition:var(--transition);
+}
+.form-group input::placeholder{
+  color:#9CA3AF;
+}
+.form-group input:hover{
+  border-color:var(--primary);
+}
+.form-group input:focus{
+  background:var(--white);
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(22,163,74,.12);
+}
+
+/* ==========================
+  BOUTON
+========================== */
+
+.btn-login{
+  width:100%;
+  height:56px;
+  margin-top:10px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+  color:var(--white);
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+  transition:var(--transition);
+}
+.btn-login:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 24px rgba(22,163,74,.25);
+}
+.btn-login:active{
+  transform:scale(.98);
+}
+
+/* ==========================
+  MESSAGE D'ERREUR
+========================== */
+
+.message-erreur{
+  margin-top:18px;
+  padding:14px;
+  border-radius:12px;
+  background:#FEF2F2;
+  border:1px solid #FECACA;
+  color:var(--danger);
+  font-size:14px;
+  text-align:center;
+}
+
+/* ==========================
+  LOGIN FOOTER
+========================== */
+
+.login-footer{
+  width:100%;
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.login-footer p{
+  color:var(--gray);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.3px;
+}
+.login-footer strong{
+  color:black;
+  font-weight:700;
+}
+
+/* =====================================================
+  ANIMATIONS
+===================================================== */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(35px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+@keyframes zoomLogo{
+  from{
+    transform:scale(.85);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+.hero-logo,
+.logo{
+  animation:zoomLogo .8s ease;
+}
+
+/* =====================================================
+  RESPONSIVE TABLETTE
+===================================================== */
+
+@media (max-width:992px){
+  .login-page{
+    grid-template-columns:1fr;
+  }
+  .login-hero{
+    min-height:340px;
+  }
+  .hero-content{
+    width:90%;
+  }
+  .hero-content h1{
+    font-size:2.4rem;
+  }
+  .login-card{
+    padding:40px 25px;
+  }
+  #form-login{
+    max-width:500px;
+  }
+}
+
+/* =====================================================
+  RESPONSIVE MOBILE
+===================================================== */
+
+@media (max-width:768px){
+  .login-page{
+    display:flex;
+    flex-direction:column;
+  }
+  .login-hero{
+    min-height:280px;
+  }
+  .hero-logo{
+    width:130px;
+  }
+  .hero-content h1{
+    font-size:2rem;
+  }
+  .hero-content p{
+    font-size:15px;
+  }
+  .login-card{
+    padding:25px 20px;
+  }
+  #form-login{
+    padding:30px 25px;
+  }
+  .card-header h2{
+    font-size:1.7rem;
+  }
+}
+
+/* =====================================================
+  PETITS MOBILES
+===================================================== */
+
+@media (max-width:480px){
+  .hero-logo{
+    width:110px;
+  }
+  .hero-content h1{
+    font-size:1.6rem;
+  }
+  .hero-content p{
+    display:none;
+  }
+  #form-login{
+    padding:25px 18px;
+  }
+  .form-group input{
+    height:52px;
+    font-size:14px;
+  }
+  .btn-login{
+    height:52px;
+    font-size:15px;
+  }
+  .login-footer p{
+    font-size:12px;
+  }
+}

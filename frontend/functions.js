@@ -33,6 +33,9 @@
    Astuce   : "  ".trim() donne une chaîne vide "". */
 function validerFormulaireLogin(donnees) {
   // TODO : à compléter
+  const nomUtilisateur = donnees.nom_utilisateur.trim();
+  const motDePasse = donnees.mot_de_passe.trim();
+  return nomUtilisateur !== "" && motDePasse !== "";
 }
 
 
@@ -45,6 +48,13 @@ function validerFormulaireLogin(donnees) {
    Astuce     : Object.values(livraisonsParJour) donne un tableau des quantités. */
 function compterJoursActifs(livraisonsParJour, seuil) {
   // TODO : à compléter
+  let count = 0;
+  for (const [date, quantite] of Object.entries(livraisonsParJour)) {
+    if (quantite > seuil) {
+      count++;
+    }
+  }
+  return count;
 }
 
 
