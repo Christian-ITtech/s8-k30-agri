@@ -5,7 +5,7 @@ Bienvenue dans votre startup. Ce dépôt est le **squelette** de l'application :
 Application web développée pour digitaliser la gestion de la *Coopérative Maraîchère de Kintele"COMAKI"*.
 Cette premiere version a pour pages: authentification par rôle, gestion des membres, suivi des livraisons, des paiements, des ventes, du stock et des statistiques.
 
-> Cette version intègre les résultats de l'analyse menée par les équipes Business Analyst à partir du cahier des charges COMAKI : un module d'authentification (la Secrétaire assure le rôle d'administratrice) et la création de nouveaux membres directement dans l'application.
+Cette version intègre les résultats de l'analyse menée par les équipes Business Analyst à partir du cahier des charges COMAKI : un module d'authentification (la Secrétaire assure le rôle d'administratrice) et la création de nouveaux membres directement dans l'application.
 
 ## Lancer le projet en local
 
