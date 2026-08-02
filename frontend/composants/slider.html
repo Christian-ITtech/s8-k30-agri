@@ -153,31 +153,10 @@
             </div>
 
         </header>
+
+        <h6>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam id facilis dignissimos natus porro impedit dolorum repellat ipsa quia dolores quas nostrum non, soluta expedita possimus vero tenetur nam nesciunt?</h6>
     </main>
 </div>
-<script>
-    
-const menuBtn = document.getElementById("menu-btn");
-const sidebar = document.getElementById("sidebar");
-const overlay = document.querySelector(".overlay");
-
-menuBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
-});
-
-overlay.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
-});
-
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-    }
-});
-
-</script>
+<script src="slider.js"></script>
 </body>
 </html>

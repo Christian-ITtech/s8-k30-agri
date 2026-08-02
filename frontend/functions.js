@@ -45,6 +45,18 @@ function validerFormulaireLogin(donnees) {
    Astuce     : Object.values(livraisonsParJour) donne un tableau des quantités. */
 function compterJoursActifs(livraisonsParJour, seuil) {
   // TODO : à compléter
+
+    const quantites = Object.values(livraisonsParJour);
+  let compteur = 0;
+
+  for (let i = 0; i < quantites.length; i++) {
+    if (quantites[i] > seuil) {
+      compteur++;
+    }
+  }
+
+  return compteur;
+  
 }
 
 
@@ -99,6 +111,19 @@ function validerFormulaireNouveauMembre(donnees) {
    Astuce   : Number("abc") vaut NaN ; Number("40") vaut 40. */
 function validerFormulaireLivraison(donnees) {
   // TODO : à compléter
+  if (donnees.membre_id !== "") {
+    if (donnees.culture !== "") {
+      const quantite = Number(donnees.quantite);
+
+      if (!isNaN(quantite) && quantite > 0) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+
+  
 }
 
 

@@ -1,616 +1,109 @@
-
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:sans-serif;
+/* message-erreur-paiement  */
+#message-erreur-paiement{
+    background:#fee2e2;
+    color:#b91c1c;
+    border:1px solid #fecaca;
 }
 
-body{
-    background:#f5f7fb;
-
-    color:#1f2937;
-}
-
-/* VARIABLES */
-
-:root{
-
-    --primary:#16a34a;
-    --primary-dark:#15803d;
-
-    --blue:#2563eb;
-    --orange:#f59e0b;
-    --red:#ef4444;
-
-    --light:#ffffff;
-
-    --gray:#6b7280;
-
-    --border:#e5e7eb;
-
-    --shadow:0 8px 25px rgba(0,0,0,.06);
-
-    --radius:18px;
-
-}
-
-/* ==========================
-LAYOUT
-========================== */
-
-.dashboard{
-
-    display:grid;
-
-    grid-template-columns:280px 1fr;
-
-    min-height:100vh;
-
-}
-
-/* ==========================
-SIDEBAR
-========================== */
-
-.sidebar{
-
-    background:white;
-
-    border-right:1px solid var(--border);
-
-    padding:30px;
-
-    position:sticky;
-
-    top:0;
-
-    height:100vh;
-
-}
-
-.logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    margin-bottom:25px;
-
-}
-
-.logo-icon{
-
-    width:60px;
-
-    height:60px;
-
-    border-radius:16px;
-
-    background:var(--primary);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:white;
-
-    font-size:24px;
-
-}
-
-.logo-text h2{
-
-    font-size:22px;
-
-    font-weight:700;
-
-}
-
-.logo-text span{
-
-    font-size:13px;
-
-    color:gray;
-
-}
-
-.sidebar nav ul{
-
-    list-style:none;
-
-}
-
-.sidebar nav li{
-
-    margin-bottom:10px;
-
-}
-
-.sidebar nav a{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    text-decoration:none;
-
-    color:#374151;
-
-    padding:15px 18px;
-
-    border-radius:14px;
-
-    transition:.3s;
-
-    font-weight:500;
-
-}
-
-.sidebar nav a:hover{
-
+/* message-succes-paiement  */
+#message-succes-paiement{
     background:#dcfce7;
-
-    color:var(--primary);
-
+    color:#166534;
+    border:1px solid #bbf7d0;
 }
 
-.sidebar nav .active a{
-
-    background:var(--primary);
-
-    color:white;
-
-    box-shadow:var(--shadow);
-
+#titre{
+    margin-bottom: 0;
 }
 
-/* ==========================
-MAIN
-========================== */
-
-.main-content{
-
-    padding:35px;
-
+/* titre h2  */
+.h2 {
+    color:#6b7280;
+    font-size:.9rem;
 }
 
-/* ==========================
-TOPBAR
-========================== */
-
-.topbar{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-bottom:40px;
-
-}
-
-.left{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-}
-
-.menu-btn{
-
-    width:50px;
-
-    height:50px;
-
-    border:none;
-
-    background:white;
-
-    border-radius:14px;
-
-    cursor:pointer;
-
-    box-shadow:var(--shadow);
-
-    font-size:18px;
-
-}
-
-.search{
-
-    width:420px;
-
-    background:white;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    padding:0 20px;
-
-    border-radius:16px;
-
-    box-shadow:var(--shadow);
-
-}
-
-.search input{
-
-    width:100%;
-
-    height:55px;
-
-    border:none;
-
-    outline:none;
-
-    font-size:15px;
-
-}
-
-.search i{
-
-    color:gray;
-
-}
-
-.right{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-}
-
-.icon-btn{
-
-    width:48px;
-
-    height:48px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:white;
-
-    cursor:pointer;
-
-    box-shadow:var(--shadow);
-
-    transition:.3s;
-
-}
-
-.icon-btn:hover{
-
-    background:var(--primary);
-
-    color:white;
-
-}
-
-.user{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    background:white;
-
-    padding:10px 16px;
-
-    border-radius:16px;
-
-    box-shadow:var(--shadow);
-
-}
-
-.user img{
-
-    width:50px;
-
-    height:50px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-}
-
-.user h4{
-
-    font-size:15px;
-
-}
-
-.user span{
-
-    color:gray;
-
-    font-size:13px;
-
-}
-
-/* style formulaire de paiement  */
-.formulaire {
-    width: 100%;
-    padding: 20px;
-    background-color:var(--light);
-    text-align: center;
-    border-radius: 10px;
-    margin-bottom: 40px;
-}
-
-.formulaire  select, button, input{
-    width: 90%;
-    margin-bottom: 10px;
-    padding: 20px;
-    border-radius: 30px;
-    border: 1px solid var(--gray);
-    outline: none;
-}
-
-.formulaire h2{
-    font-size: 30px;
-    letter-spacing: 3px;
+p{
+    margin-left: 15px;
+    margin-top: 5px;
     margin-bottom: 20px;
-    color: var(--gray);
 }
 
-button{
-    background-color:var(--primary);
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    transition: .3s;
-    font-weight: bold;
+/* carte formulaire de paiement  */
+.formulaire-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    border:1px solid #eef1f4;
 }
 
-/* total et historique  */
-#Historique{
-    text-align: center;
-    margin-bottom: 15px;
-    color: var(--gray);
-    font-weight: bold;
-    font-size: 30px;
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+select, input{
+    height:50px;
+    border:1px solid #d6dbe2;
+    border-radius:12px;
+    padding:0 15px;
+    font-size:.95rem;
+    background:#fff;
+}
+
+.formulaire-card button{
+    height:50px;
+    border:none;
+    border-radius:12px;
+    background:#16a34a;
+    color:#fff;
+    font-size:.95rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform: translateY(-5px);
+}
+
+.formulaire-card h2{
+    margin-bottom: 20px;
 }
 
 /* style tableau  */
 table{
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
+    width:100%;
+    border-collapse:collapse;
+    margin-top: 30px;
 }
 
-th,td{
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
+thead{
+    background:#f8fafc;
+}
+
+thead th{
+    text-align:center;
+    padding:18px;
+    font-size:.9rem;
+    font-weight:600;
+    color: white;
+    border-bottom:1px solid #e5e7eb;
+    background-color: #4b5563;
+}
+
+tbody td{
+    padding:18px;
+    border-bottom:1px solid #eef2f7;
+    font-size:.95rem;
     text-align: center;
 }
 
-th{
-    background-color: #ddd;
-    color: var(--primary-dark);
-    font-size: 20px;
+tbody tr{
+    transition:.25s;
+}
+
+tbody tr:hover{
+    background:#f9fbfc;
 } 
-
-/* ============================
-   BURGER + RESPONSIVE
-============================ */
-
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    opacity:0;
-    visibility:hidden;
-    transition:.3s;
-    z-index:998;
-}
-
-.overlay.active{
-    opacity:1;
-    visibility:visible;
-}
-
-/* cacher le burger sur PC */
-
-.menu-btn{
-    display:none;
-}
-
-/* ============================
-   TABLETTE + MOBILE
-============================ */
-
-@media (max-width:768px){
-
-    .dashboard{
-        display:block;
-    }
-
-    .sidebar{
-
-        position:fixed;
-
-        top:0;
-        left:-300px;
-
-        width:280px;
-        height:100vh;
-
-        background:white;
-
-        transition:.35s ease;
-
-        z-index:999;
-
-        overflow-y:auto;
-
-        box-shadow:0 0 30px rgba(0,0,0,.15);
-
-    }
-
-    .sidebar.active{
-
-        left:0;
-
-    }
-
-    .main-content{
-
-        width:100%;
-
-        padding:20px;
-
-    }
-
-    .menu-btn{
-
-        display:flex;
-
-        justify-content:center;
-
-        align-items:center;
-
-        width:48px;
-
-        height:48px;
-
-        border:none;
-
-        background:white;
-
-        border-radius:12px;
-
-        box-shadow:var(--shadow);
-
-        cursor:pointer;
-
-        font-size:18px;
-
-    }
-
-    .topbar{
-
-        display:flex;
-
-        justify-content:space-between;
-
-        align-items:center;
-
-        gap:15px;
-
-        flex-wrap:wrap;
-
-    }
-
-    .left{
-
-        width:100%;
-
-    }
-
-    .search{
-
-        width:100%;
-
-    }
-
-    .right{
-
-        width:100%;
-
-        justify-content:flex-end;
-
-    }
-
-}
-
-/* ============================
-   PETITS MOBILES
-============================ */
-
-@media(max-width:480px){
-
-    .main-content{
-        padding:15px;
-    }
-
-    .search{
-        width:100%;
-    }
-
-    .user{
-        display:none;
-    }
-
-}
-.close-sidebar{
-
-    display:none;
-
-    position:absolute;
-
-    top:15px;
-
-    right:15px;
-
-    width:42px;
-
-    height:42px;
-
-    border:none;
-
-    border-radius:12px;
-
-    background:#f3f4f6;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-    transition:.3s;
-
-}
-
-.close-sidebar:hover{
-
-    background:#ef4444;
-
-    color:#fff;
-
-}
-
-@media (max-width:768px){
-
-    .close-sidebar{
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:center;
-
-    }
-
-}

@@ -11,14 +11,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="paiements.css">
+  <link rel="stylesheet" href="../composants/slider.css">
 </head>
 <body>
    <!-- NAVIGATION — TODO (Dev FS4) -->
-   <div class="dashboard">
+    <div class="overlay"></div>
+<div class="dashboard">
+
     <!-- ========================= -->
     <!-- SIDEBAR -->
     <!-- ========================= -->
-    <aside class="sidebar">
+
+    <aside class="sidebar"  id="sidebar" >
 
         <div class="logo">
 
@@ -45,7 +49,7 @@
                     </a>
                 </li>
 
-                <li class="active">
+                <li>
                     <a href="../membres/membres.html">
                         <i class="fa-solid fa-user-group"></i>
                         Membres
@@ -53,13 +57,13 @@
                 </li>
 
                 <li>
-                    <a href="../membres/membres.html">
+                    <a href="../livraisons/livraisons.html">
                         <i class="fa-solid fa-truck-fast "></i>
                         Livraisons
                     </a>
                 </li>
 
-                <li>
+                <li class="active">
                     <a href="../paiements/paiements.html">
                         <i class="fa-solid fa-money-bill-1-wave"></i>
                         Paiements
@@ -67,7 +71,7 @@
                 </li>
 
                 <li>
-                    <a href="../ventes-stock/ventes-stock.html">
+                    <a href="../ventes/ventes.html">
                         <i class="fa-solid fa-dolly"></i>
                         Ventes et Stock
                     </a>
@@ -99,7 +103,7 @@
 
             <div class="left">
 
-                <button class="menu-btn">
+                <button class="menu-btn" id="menu-btn">
                     <i class="fa-solid fa-bars"></i>
                 </button>
 
@@ -109,7 +113,7 @@
 
                     <input
                         type="text"
-                        placeholder="Rechercher un membre...">
+                        placeholder="Rechercher une livraison...">
 
                 </div>
 
@@ -133,8 +137,8 @@
 
                     <div>
 
-                        <h4>Aurélie BIKINDOU</h4>
-                        <span>Trésorière</span>
+                        <h4>Jean Mukendi</h4>
+                        <span>Administrateur</span>
 
                     </div>
 
@@ -149,9 +153,10 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-
-    <div class="formulaire">
-      <h2>FORMULAIRE DE PAIEMENT</h2>
+       <h1 id="titre">Gestion des paiements</h1>
+       <p>Enregistrer et suivez les paiements effectués aux memmbres de la coopérative.</p>
+    <div class="formulaire-card">
+      <h2>Formulaire de paiement</h2>
      <form id="form-paiement" class="champ">
       <select id="p-membre" required>
         <option value="">-- Choisir un membre --</option>
@@ -190,31 +195,7 @@
     </table>
     </main>
 </div>
-<script>
-    
-const menuBtn = document.getElementById("menu-btn");
-const sidebar = document.getElementById("sidebar");
-const overlay = document.querySelector(".overlay");
-
-menuBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-    overlay.classList.toggle("active");
-});
-
-overlay.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-    overlay.classList.remove("active");
-});
-
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-    }
-});
-
-</script>
-
+<script src="../composants/slider.js"></script>
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
   <script src="../functions.js"></script>
   <script src="../main.js"></script>
