@@ -1,116 +1,276 @@
-/* message-erreur-paiement  */
-#message-erreur-paiement{
-    background:#fee2e2;
-    color:#b91c1c;
-    border:1px solid #fecaca;
+/* ============================================================
+   CSS PAIEMENTS — style identique à membres.css
+   ============================================================ */
+
+/* ============================================================
+   TITRE PRINCIPAL
+   ============================================================ */
+
+.main-content p {
+    color: #4a5a6a;
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
 }
 
-/* message-succes-paiement  */
-#message-succes-paiement{
-    background:#dcfce7;
-    color:#166534;
-    border:1px solid #bbf7d0;
+
+.global-paiement-formulaire{
+display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+
 }
 
-#titre{
-    margin-bottom: 0;
+/* ============================================================
+   FORMULAIRE-CARD (comme .formulaire dans membres.css)
+   ============================================================ */
+.formulaire-card {
+    background: var(--light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 24px;
+    margin-bottom: 28px;
+    max-width: 100%;
 }
 
-/* titre h2  */
-.h2 {
-    color:#6b7280;
-    font-size:.9rem;
+.formulaire-card h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 1.2rem;
 }
 
-p{
-    margin-left: 15px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-}
-
-/* carte formulaire de paiement  */
-.formulaire-card{
-    background:#fff;
-    border-radius:18px;
-    padding:30px;
-    margin-bottom:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
-    border:1px solid #eef1f4;
-}
-
-form{
-    display: flex;
+/* ============================================================
+   FORMULAIRE (même style que #form-nouveau-membre)
+   ============================================================ */
+#form-paiement {
+ display: flex;
     flex-direction: column;
+    gap: 1px;
+    max-width: 100%;
 }
 
-select, input{
-    height:50px;
-    border:1px solid #d6dbe2;
-    border-radius:12px;
-    padding:0 15px;
-    font-size:.95rem;
-    background:#fff;
+#form-paiement select,
+#form-paiement input {
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    background: #fff;
+    color: var(--dark);
+    width: 100%;
+    transition: border-color 0.2s ease;
+    margin-bottom: .8rem;
+  
+  
 }
 
-.formulaire-card button{
-    height:50px;
-    border:none;
-    border-radius:12px;
-    background:#16a34a;
-    color:#fff;
-    font-size:.95rem;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
+#form-paiement select:focus,
+#form-paiement input:focus {
+    outline: none;
+    border-color: var(--primary);
 }
 
-button:hover{
-    transform: translateY(-5px);
+#form-paiement button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 9px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 100%;
 }
 
-.formulaire-card h2{
-    margin-bottom: 20px;
+#form-paiement button:hover {
+    background: var(--primary-dark);
 }
 
-/* style tableau historique  */
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top: 30px;
+/* ============================================================
+   MESSAGES D'ERREUR / SUCCÈS
+   ============================================================ */
+#message-erreur-paiement {
+    color: var(--red);
+    font-size: 13px;
+    margin-top: -6px;
+    margin-bottom: 12px;
 }
 
-thead{
-    background:#f8fafc;
+#message-succes-paiement {
+    color: var(--primary);
+    font-size: 13px;
+    margin-top: -6px;
+    margin-bottom: 12px;
 }
 
-thead th{
-    text-align:center;
-    padding:18px;
-    font-size:.9rem;
-    font-weight:600;
-    border-bottom:1px solid #e5e7eb;
+/* ============================================================
+   TOTAL PAIEMENTS
+   ============================================================ */
+#total-paiements {
+    background: var(--light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--dark);
+    border-left: 4px solid var(--primary);
 }
 
-tbody td{
-    padding:18px;
-    border-bottom:1px solid #eef2f7;
-    font-size:.95rem;
-    text-align: center;
+#total-paiements::before {
+    content: "💰 Total des paiements : ";
+    font-weight: 400;
+    color: #4a5a6a;
 }
 
-tbody tr{
-    transition:.25s;
+/* ============================================================
+   HISTORIQUE
+   ============================================================ */
+#Historique {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 1.8rem 0 1rem 0;
 }
 
-tbody tr:hover{
-    background:#f9fbfc;
-} 
+/* ============================================================
+   TABLEAU (comme .membre-ligne dans membres.css)
+   ============================================================ */
+table {
+    width: 100%;
+    background: var(--light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border-collapse: collapse;
+}
 
-.card-historique{
-    background:#fff;
-    border-radius:18px;
-    padding:30px;
-    margin-bottom:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
-    border:1px solid #eef1f4;
+table thead {
+    background: #e9edf4;
+}
+
+table th {
+    padding: 14px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #4a5a6a;
+    border-bottom: 2px solid var(--border);
+}
+
+table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    color: var(--dark);
+    font-size: 0.95rem;
+}
+
+table tbody tr {
+    transition: all 0.1s ease-in-out;
+}
+
+table tbody tr:hover {
+        color: var(--primary-dark);
+        background-color: #dcfce7;
+        transform: scale(1.01);
+}
+
+
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ============================================================
+   RESPONSIVE (identique à membres.css)
+   ============================================================ */
+@media (max-width: 700px) {
+
+    .global-paiement-formulaire {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+    .main-content p {
+        font-size: 0.9rem;
+    }
+
+    .formulaire-card {
+        padding: 16px;
+    }
+
+    #form-paiement {
+        gap: 12px;
+    }
+
+    #form-paiement select,
+    #form-paiement input {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    #form-paiement button {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table th,
+    table td {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+
+    #total-paiements {
+        font-size: 1rem;
+        padding: 12px 16px;
+    }
+
+    #Historique {
+        font-size: 1.1rem;
+    }
+}
+
+/* ============================================================
+   PETITS ÉCRANS (mobile)
+   ============================================================ */
+@media (max-width: 480px) {
+    .formulaire-card {
+        padding: 12px;
+    }
+
+    #form-paiement select,
+    #form-paiement input {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    #form-paiement button {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    table th,
+    table td {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+
+    #total-paiements {
+        font-size: 0.9rem;
+        padding: 10px 14px;
+    }
+
+
+
 }
