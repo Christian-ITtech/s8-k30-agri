@@ -222,6 +222,19 @@ function formaterMontant(montant) {
    Retourne  : le tableau trié par .volume_total décroissant. */
 function trierClassementParVolume(classement) {
   // TODO : à compléter
+  const membresTries = [...classement];
+for (let i = 0; i < membresTries.length; i++) {
+    for (let j = 0; j < membresTries.length - 1 - i; j++) {
+        // Tri décroissant sur 'volume_total'
+        if (membresTries[j].volume_total < membresTries[j + 1].volume_total) {
+            let tempo = membresTries[j];
+            membresTries[j] = membresTries[j + 1];
+            membresTries[j + 1] = tempo;
+        }
+    }
+  }
+  
+  return membresTries;
 }
 
 
@@ -233,6 +246,13 @@ function trierClassementParVolume(classement) {
    Astuce    : dateStr.split("-") donne ["2026", "07", "12"]. */
 function formaterDate(dateStr) {
   // TODO : à compléter
+   const morceaux = dateStr.split("-");
+  
+  const annee = morceaux[0];
+  const mois = morceaux[1];
+  const jour = morceaux[2];
+  
+  return `${jour}/${mois}/${annee}`;
 }
 
 
