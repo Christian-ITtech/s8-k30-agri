@@ -1,10 +1,11 @@
-# AgriCoop Connect — Coopérative COMAKI, Kintélé
+# K-30 Agri - COMAKI
 
 Bienvenue dans votre startup. Ce dépôt est le **squelette** de l'application : un mini-site de 8 pages pour digitaliser la gestion de la coopérative COMAKI (authentification, membres, livraisons, paiements, ventes, stock, statistiques). La structure est déjà en place ; **votre équipe complète les fonctions manquantes et construit les pages**.
 
-Vous avez **quelques jours comme prevu dans le document** pour ce projet.
+Application web développée pour digitaliser la gestion de la *Coopérative Maraîchère de Kintele"COMAKI"*.
+Cette premiere version a pour pages: authentification par rôle, gestion des membres, suivi des livraisons, des paiements, des ventes, du stock et des statistiques.
 
-> Cette version intègre les résultats de l'analyse menée par les équipes Business Analyst à partir du cahier des charges COMAKI : un module d'authentification (la Secrétaire assure le rôle d'administratrice) et la création de nouveaux membres directement dans l'application.
+Cette version intègre les résultats de l'analyse menée par les équipes Business Analyst à partir du cahier des charges COMAKI : un module d'authentification (la Secrétaire assure le rôle d'administratrice) et la création de nouveaux membres directement dans l'application.
 
 ## Lancer le projet en local
 
@@ -144,8 +145,29 @@ C'est la source unique de vérité : ne modifiez pas ce fichier, sinon vos résu
 | RM-6 | Un utilisateur ne peut accéder qu'aux actions autorisées pour son rôle (module Authentification). |
 | RM-7 | Un doublon quasi certain de membre propose la fiche existante plutôt que d'en créer une nouvelle. |
 
-## Livrable & soutenance (Demo Day)
+## Présentation du groupe:
 
-Votre équipe pitche son produit comme une vraie startup : démo live (connexion avec un compte de test, navigation sur les 8 pages, enregistrement d'une vraie livraison et d'un vrai paiement, création d'un nouveau membre), avec explication des règles métier respectées.
+# Light-Tech
+*Light-Tech* est un groupe de jeunes innovateurs passionnés, réunis par la *cohorte 2 Akieni Académy*.  
+Animés par la créativité et l’esprit d’équipe, ils s’engagent à transformer des idées en solutions concrètes, au service de l’innovation et du progrès.
 
-Bonne construction.
+## Auteurs
+
+**Marketing Digital**
+- MASSANGA Gelcy Ildard — Lead du groupe, Lead Marketing & Communication
+
+**Business Analyst**
+- KILEBE Andelsonne — Lead Business Analyst
+
+**Équipe Data Science**
+- KIESSI Lucia — Lead Data, Zone A (Tableau de bord & Statistiques)
+- NGONO-NGONO Mignon — Zone B (Membres & Livraisons)
+- MONGO Max Espoir — Zone C + D (Ventes/Stock/Paiements & Authentification)
+
+**Équipe Full Stack**
+- Matondo Jonathan — Lead Fullstack (Login + Dashboard)
+- LELO MAKAYA Sunelson Isaac —  Product Owner (Statistiques)
+- Moutou Moukolo Christian Dorgela — Repo Admin (Ventes)
+- NDOUKOU MAMBOU Don Réel —  (Membres & Comptes)
+- NDONGALA Dreche —  (Livraisons)
+- Louamba Ceti Delaure —  (Paiements)

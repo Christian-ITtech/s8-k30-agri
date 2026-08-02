@@ -33,6 +33,9 @@
    Astuce   : "  ".trim() donne une chaîne vide "". */
 function validerFormulaireLogin(donnees) {
   // TODO : à compléter
+  const nomUtilisateur = donnees.nom_utilisateur.trim();
+  const motDePasse = donnees.mot_de_passe.trim();
+  return nomUtilisateur !== "" && motDePasse !== "";
 }
 
 
@@ -187,7 +190,16 @@ function trierLivraisonsParDate(livraisons) {
      - mode_paiement doit être "Espèces" ou "Mobile Money"
    Retourne : true si tout est valide, false sinon. */
 function validerFormulairePaiement(donnees) {
-  // TODO : à compléter
+  if (!donnees.membre_id){
+    return false ;
+  }
+  if (Number(donnees.montant) <= 0){
+    return false ;
+  }
+  if (donnees.mode_paiement !== "Mobile Money" && donnees.mode_paiement !== "Espèces"){
+    return false ;
+  }
+  return true ;
 }
 
 
@@ -198,7 +210,11 @@ function validerFormulairePaiement(donnees) {
    Retourne  : un nombre (la somme de tous les montants).
    Exemple   : calculerTotalPaiements([{montant:5000},{montant:3000}]) -> 8000 */
 function calculerTotalPaiements(paiements) {
-  // TODO : à compléter
+  let Total = 0 ;
+  for ( let i = 0; i < paiements.length; i++ ){
+    Total += paiements[i].montant;
+  }
+  return Total;
 }
 
 

@@ -1,52 +1,218 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriCoop Connect — Paiements</title>
-  <link rel="stylesheet" href="paiements.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriCoop Connect — Paiements</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="paiements.css">
+    <link rel="stylesheet" href="../composants/slider.css">
 </head>
+
 <body>
+    <!-- NAVIGATION — TODO (Dev FS4) -->
+    <div class="overlay"></div>
+    <div class="dashboard">
 
-  <!-- NAVIGATION — TODO (Dev FS4) -->
+        <!-- ========================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================= -->
 
-  <main>
-    <!-- =====================================================================
+        <aside class="sidebar" id="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+
+                <div class="logo-text">
+                    <h2>K30-AGRI</h2>
+                    <span>Administration</span>
+                </div>
+
+            </div>
+            <h6>Coopérative Maraîchère de Kintele</h6>
+            <br>
+            <nav>
+
+                <ul>
+
+                    <li>
+                        <a href="../dashboard/dashboard.html">
+                            <i class="fa-solid fa-house"></i>
+                            Tableau de bord
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../membres/membres.html">
+                            <i class="fa-solid fa-user-group"></i>
+                            Membres
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../livraisons/livraisons.html">
+                            <i class="fa-solid fa-truck-fast "></i>
+                            Livraisons
+                        </a>
+                    </li>
+
+                    <li class="active">
+                        <a href="../paiements/paiements.html">
+                            <i class="fa-solid fa-money-bill-1-wave"></i>
+                            Paiements
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../ventes/ventes.html">
+                            <i class="fa-solid fa-dolly"></i>
+                            Ventes et Stock
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../statistiques/statistiques.html">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            Stactistiques
+                        </a>
+                    </li>
+
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- ========================= -->
+        <!-- CONTENU -->
+        <!-- ========================= -->
+
+        <main class="main-content">
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div class="left">
+
+                    <button class="menu-btn" id="menu-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <div class="search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" placeholder="Rechercher un membre...">
+
+                    </div>
+
+                </div>
+
+                <div class="right">
+
+                    <button class="icon-btn">
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+
+                    <button class="icon-btn">
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
+
+                    <div class="user">
+
+                        <img src="#" alt="Utilisateur">
+
+                        <div>
+
+                            <h4>Aurélie BIKINDOU</h4>
+                            <span>Trésorière</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- =====================================================================
          FORMULAIRE DE PAIEMENT — TODO (Dev FS4)
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-    <form id="form-paiement">
-      <select id="p-membre"><option value="">-- Choisir un membre --</option></select>
-      <input type="number" id="p-montant" min="1" placeholder="Montant (FCFA)">
-      <select id="p-mode-paiement">
-        <option value="">-- Mode de paiement --</option>
-        <option value="Espèces">Espèces</option>
-        <option value="Mobile Money">Mobile Money</option>
-      </select>
-      <button type="submit">Enregistrer</button>
-    </form>
+            <h1 >Gestion des paiements</h1>
 
-    <div id="message-erreur-paiement" hidden></div>
-    <div id="message-succes-paiement" hidden></div>
+            <section class="global-paiement-formulaire">
 
-    <!-- =====================================================================
-         TOTAL ET HISTORIQUE — TODO (Dev FS4)
+                <article class="formulaire-paiement">
+                    <p>Enregistrer et suivez les paiements effectués aux memmbres de la coopérative.</p>
 
-         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-         ===================================================================== -->
-    <div id="total-paiements"></div>
+                    <div class="formulaire-card">
+                        <h2>Formulaire de paiement</h2>
+                        <form id="form-paiement" class="champ">
+                            <select id="p-membre" required>
+                                <option value="">-- Choisir un membre --</option>
+                            </select> 
+                            <input type="number" id="p-montant" min="1" placeholder="Montant (FCFA)" required>
+                            <select id="p-mode-paiement" required>
+                                <option value="">-- Mode de paiement --</option>
+                                <option value="Espèces">Esspèces</option>
+                                <option value="Mobile Money">Mobile Money</option>
+                            </select> 
+                            <button type="submit">Enregistrer</button>
+                        </form>
+                    </div>
 
-    <table>
-      <thead>
-        <!-- TODO (Dev FS4) : en-têtes (Membre, Montant, Mode de paiement, Date) -->
-      </thead>
-      <tbody id="liste-paiements"></tbody>
-    </table>
-  </main>
+                    <div id="message-erreur-paiement" hidden></div>
+                    <div id="message-succes-paiement" hidden></div>
 
-  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
-  <script src="../functions.js"></script>
-  <script src="../main.js"></script>
+                </article>
+
+                <!-- =====================================================================
+                     TOTAL ET HISTORIQUE — TODO (Dev FS4)
+            
+                     *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+                     ===================================================================== -->
+                <article>
+                    <div id="total-paiements"></div>
+                    <h2 id="Historique">Historique de paiement</h2>
+                    <table>
+                        <thead>
+                            <!-- TODO (Dev FS4) : en-têtes (Membre, Montant, Mode de paiement, Date) -->
+                            <tr>
+                                <th>Membre</th>
+                                <th>Montant</th>
+                                <th>Mode</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="liste-paiements"></tbody>
+                    </table>
+                </article>
+
+
+            </section>
+
+
+
+
+        </main>
+    </div>
+    <script src="../composants/slider.js"></script>
+    <!-- NE PAS MODIFIER — scripts de connexion au backend -->
+    <script src="../functions.js"></script>
+    <script src="../main.js"></script>
 </body>
+
 </html>
