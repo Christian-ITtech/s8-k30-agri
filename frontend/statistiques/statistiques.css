@@ -1,0 +1,248 @@
+h2 {
+    margin: 1.5rem 0px;
+}
+
+article {
+    padding: 1rem 2rem;
+    background-color: white;
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+}
+
+/* TABLEAU DES PRODUITS */
+table {
+    border: 1px solid var(--gray);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table,
+tr,
+td,
+th {
+    border: 1px solid rgb(241, 236, 236);
+    padding: .5rem 2rem;
+    border-radius: 10px;
+
+    transition: all .2s ease-in-out;
+}
+
+tr td:first-child {
+    color: var(--primary);
+    font-weight: bold;
+    background-color: aliceblue;
+}
+
+
+
+
+
+
+.section-stat-one {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+
+/* LES MEMBRES */
+#classement-membres {
+    padding: 0px 1rem;
+    background-color: white;
+    border-radius: var(--radius);
+}
+
+ol {
+    padding: 0px;
+    margin: 0px;
+}
+
+ol li {
+    padding: 11px 15px;
+    color: var(--gray);
+    transition: all .2s ease-in-out;
+    width: 100%;
+}
+
+ol li span {
+    display: inline-block;
+}
+
+ol li span:first-child {
+    min-width: 80%;
+}
+
+ol li span:last-child {
+    color: var(--primary);
+    font-weight: bold;
+    text-align: end;
+}
+
+ol li:hover,
+table tr:hover {
+    color: var(--primary-dark);
+    cursor: pointer;
+    background-color: #dcfce7;
+    transform: scale(1.01);
+}
+
+
+
+
+
+/* MEILLEUR ACHETEUR */
+.meilleur-acheteur {
+    display: flex;
+    border: .5px solid rgb(253, 249, 249);
+    padding: 1rem;
+
+    justify-content: space-around;
+    align-items: center;
+    width: 350px;
+    font-weight: 300;
+
+    background-color: #dcfce7;
+}
+
+.meilleur-acheteur i {
+    font-size: 3rem;
+    color: var(--primary);
+    background-color: #dcfce7; 
+    margin-right: 15px;
+}
+
+
+
+
+
+
+
+
+#rapport-bailleur-contenu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+#rapport-bailleur-contenu>span {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 6px;
+    min-width: 150px;
+    padding: 16px;
+    background-color: #ffffff;
+    border-bottom: 4px solid var(--primary);
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #1a202c;
+    line-height: 1;
+}
+
+#rapport-bailleur-contenu>span:hover {
+    color: var(--primary);
+}
+
+
+#rb-volume::before {
+    content: "Volume total";
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #718096;
+}
+
+#rb-montant::before {
+    content: "Montant global";
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #718096;
+}
+
+#rb-taux::before {
+    content: "Taux d'évolution";
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #718096;
+}
+
+#rb-membres::before {
+    content: "Nombre de membres";
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #718096;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:800px) {
+
+    .section-stat-one {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0rem;
+    }
+
+
+    ol li span:first-child {
+        min-width: auto;
+    }
+
+
+
+
+    table {
+        border: 1px solid var(--gray);
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    table,
+    tr,
+    td,
+    th {
+    
+        padding: .5rem .5rem;
+
+    }
+
+
+
+    .meilleur-acheteur {
+
+        width: auto;
+
+    }
+
+
+
+
+
+
+
+
+
+}

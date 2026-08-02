@@ -1,0 +1,141 @@
+/* main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+} */
+.global-members-formulaire {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+#filtre-statut,
+#champ-recherche-membre {
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    margin-right: 12px;
+    margin-bottom: 20px;
+}
+
+#champ-recherche-membre {
+    width: 260px;
+}
+
+/* Conteneur de la liste : main.js injecte une .membre-ligne par membre */
+#liste-membres {
+    background: var(--light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    overflow: hidden;
+    /* pour que les coins arrondis restent propres même avec des lignes internes */
+}
+
+/* Chaque ligne de membre générée par main.js */
+.membre-ligne {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+
+    transition: all.1s ease-in-out;
+}
+
+.membre-ligne:hover {
+    color: var(--primary-dark);
+
+    background-color: #dcfce7;
+    transform: scale(1.01);
+}
+
+.membre-ligne:last-child {
+    border-bottom: none;
+    /* évite une double bordure en bas de la dernière ligne */
+}
+
+/* Badge de statut (À jour / En retard), même logique que vos badges de stock */
+.badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #f5f5f5;
+    color: var(--dark);
+}
+
+/* Formulaire Nouveau membre */
+#form-nouveau-membre {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 100%;
+    background: var(--light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+#form-nouveau-membre input,
+#form-nouveau-membre select {
+    padding: 10px 12px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+#form-nouveau-membre input:focus,
+#form-nouveau-membre select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+#form-nouveau-membre button {
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    padding: 12px;
+    border-radius: 9px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#form-nouveau-membre button:hover {
+    background: var(--primary-dark);
+}
+
+/* Messages d'erreur / succès */
+#erreurs-nouveau-membre {
+    color: var(--red);
+    font-size: 13px;
+    margin-top: -6px;
+}
+
+#message-succes-nouveau-membre {
+    color: var(--primary);
+    font-size: 13px;
+    margin-top: -6px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    #champ-recherche-membre {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .membre-ligne {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .membre-ligne,
+    .global-members-formulaire {
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
+}

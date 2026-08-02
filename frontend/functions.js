@@ -48,13 +48,18 @@ function validerFormulaireLogin(donnees) {
    Astuce     : Object.values(livraisonsParJour) donne un tableau des quantités. */
 function compterJoursActifs(livraisonsParJour, seuil) {
   // TODO : à compléter
-  let count = 0;
-  for (const [date, quantite] of Object.entries(livraisonsParJour)) {
-    if (quantite > seuil) {
-      count++;
+
+    const quantites = Object.values(livraisonsParJour);
+  let compteur = 0;
+
+  for (let i = 0; i < quantites.length; i++) {
+    if (quantites[i] > seuil) {
+      compteur++;
     }
   }
-  return count;
+
+  return compteur;
+  
 }
 
 
@@ -66,6 +71,7 @@ function compterJoursActifs(livraisonsParJour, seuil) {
                 .statut_cotisation est égal au statut demandé. */
 function filtrerMembresParStatut(membres, statut) {
   // TODO : à compléter
+  return membres.filter(membre => membre.statut_cotisation === statut);
 }
 
 
@@ -78,6 +84,14 @@ function filtrerMembresParStatut(membres, statut) {
    Astuce     : "Jean Mabiala".toLowerCase().includes("jean") -> true */
 function rechercherMembreParNom(membres, texte) {
   // TODO : à compléter
+  // Si le texte est vide, retourner tous les membres
+  if (texte === "") {
+    return membres;
+  }
+
+  return membres.filter(membre =>
+    membre.nom.toLowerCase().includes(texte.toLowerCase())
+  );
 }
 
 
@@ -94,6 +108,28 @@ function rechercherMembreParNom(membres, texte) {
                                             "Le contact est obligatoire."]} */
 function validerFormulaireNouveauMembre(donnees) {
   // TODO : à compléter
+    const erreurs = [];
+
+  if (donnees.nom.trim() === "") {
+    erreurs.push("Le nom est obligatoire.");
+  }
+
+  if (donnees.prenom.trim() === "") {
+    erreurs.push("Le prénom est obligatoire.");
+  }
+
+  if (donnees.village.trim() === "") {
+    erreurs.push("Le village est obligatoire.");
+  }
+
+  if (donnees.contact.trim() === "") {
+    erreurs.push("Le contact est obligatoire.");
+  }
+
+  return {
+    valide: erreurs.length === 0,
+    erreurs: erreurs
+  };
 }
 
 
@@ -109,6 +145,19 @@ function validerFormulaireNouveauMembre(donnees) {
    Astuce   : Number("abc") vaut NaN ; Number("40") vaut 40. */
 function validerFormulaireLivraison(donnees) {
   // TODO : à compléter
+  if (donnees.membre_id !== "") {
+    if (donnees.culture !== "") {
+      const quantite = Number(donnees.quantite);
+
+      if (!isNaN(quantite) && quantite > 0) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+
+  
 }
 
 
@@ -121,6 +170,11 @@ function validerFormulaireLivraison(donnees) {
                directement (ordre alphabétique = ordre chronologique). */
 function trierLivraisonsParDate(livraisons) {
   // TODO : à compléter
+   return livraisons.sort((a, b) => {
+    if (a.date < b.date) return 1;
+    if (a.date > b.date) return -1;
+    return 0;
+  });
 }
 
 
@@ -136,7 +190,16 @@ function trierLivraisonsParDate(livraisons) {
      - mode_paiement doit être "Espèces" ou "Mobile Money"
    Retourne : true si tout est valide, false sinon. */
 function validerFormulairePaiement(donnees) {
-  // TODO : à compléter
+  if (!donnees.membre_id){
+    return false ;
+  }
+  if (Number(donnees.montant) <= 0){
+    return false ;
+  }
+  if (donnees.mode_paiement !== "Mobile Money" && donnees.mode_paiement !== "Espèces"){
+    return false ;
+  }
+  return true ;
 }
 
 
@@ -147,31 +210,29 @@ function validerFormulairePaiement(donnees) {
    Retourne  : un nombre (la somme de tous les montants).
    Exemple   : calculerTotalPaiements([{montant:5000},{montant:3000}]) -> 8000 */
 function calculerTotalPaiements(paiements) {
-  // TODO : à compléter
+  let Total = 0 ;
+  for ( let i = 0; i < paiements.length; i++ ){
+    Total += paiements[i].montant;
+  }
+  return Total;
 }
 
 
-/* [Dev FS5 — Ventes & Stock — niveau S7/S8 : condition sur un nombre]
-   Retourne un texte de badge selon la quantité disponible d'une culture.
-   Paramètre : quantiteDisponible (nombre, en kg)
-   Règles :
-     - 0 kg               -> "Épuisé"
-     - 1 à 49 kg           -> "Stock faible"
-     - 50 kg ou plus       -> "Disponible"
-   Retourne : une chaîne de caractères. */
+/* Dev FS5: condition sur un nombre */
 function getBadgeStock(quantiteDisponible) {
-  // TODO : à compléter
+   if (quantiteDisponible === 0) {
+    return "Épuisé";
+  } else if (quantiteDisponible < 50) {
+    return "Stock faible";
+  } else {
+    return "Disponible";
+  }
 }
 
-
-/* [Dev FS5 — fonction transverse — niveau S8 : propriétés d'objet + formatage]
-   Met en forme un montant en FCFA, utilisée sur presque toutes les pages
-   (tableau de bord, membres, livraisons, paiements).
-   Paramètre : montant (nombre)
-   Retourne  : une chaîne de caractères, le nombre suivi de " FCFA".
-   Exemple   : formaterMontant(23000) -> "23000 FCFA" */
+/*Dev FS5: formatage du montant */
 function formaterMontant(montant) {
-  // TODO : à compléter
+  // TODO : à 
+  return `${montant} FCFA`;
 }
 
 
@@ -182,6 +243,19 @@ function formaterMontant(montant) {
    Retourne  : le tableau trié par .volume_total décroissant. */
 function trierClassementParVolume(classement) {
   // TODO : à compléter
+  const membresTries = [...classement];
+for (let i = 0; i < membresTries.length; i++) {
+    for (let j = 0; j < membresTries.length - 1 - i; j++) {
+        // Tri décroissant sur 'volume_total'
+        if (membresTries[j].volume_total < membresTries[j + 1].volume_total) {
+            let tempo = membresTries[j];
+            membresTries[j] = membresTries[j + 1];
+            membresTries[j + 1] = tempo;
+        }
+    }
+  }
+  
+  return membresTries;
 }
 
 
@@ -193,6 +267,13 @@ function trierClassementParVolume(classement) {
    Astuce    : dateStr.split("-") donne ["2026", "07", "12"]. */
 function formaterDate(dateStr) {
   // TODO : à compléter
+   const morceaux = dateStr.split("-");
+  
+  const annee = morceaux[0];
+  const mois = morceaux[1];
+  const jour = morceaux[2];
+  
+  return `${jour}/${mois}/${annee}`;
 }
 
 
