@@ -6,32 +6,7 @@
   <title>K30 Agri — Ventes & Stock</title>
   <link rel="stylesheet" href="ventes.css">
   <link rel="stylesheet" href="../composants/slider.css">
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const menuBtn = document.getElementById("menu-btn");
-      const sidebar = document.getElementById("sidebar");
-      const overlay = document.querySelector(".overlay");
 
-      if (!menuBtn || !sidebar || !overlay) return;
-
-      menuBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-        overlay.classList.toggle("active");
-      });
-
-      overlay.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-      });
-
-      window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-          sidebar.classList.remove("active");
-          overlay.classList.remove("active");
-        }
-      });
-    });
-  </script>
    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -226,5 +201,6 @@
 </div>
   <script src="../functions.js"></script>
   <script src="../main.js"></script>
+  <script src="../composants/slider.js"></script>
 </body>
 </html>
