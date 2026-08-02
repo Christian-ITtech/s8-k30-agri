@@ -1,58 +1,363 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriCoop Connect — Livraisons</title>
-  <link rel="stylesheet" href="livraisons.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>COMAKI | Dashboard Livraisons</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../composants/slider.css">
+    <link rel="stylesheet" href="livraisons.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
+ <div class="overlay"></div>
+<div class="dashboard">
 
-  <!-- NAVIGATION — TODO (Dev FS3) -->
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
 
-  <main>
-    <!-- =====================================================================
-         FORMULAIRE D'ENREGISTREMENT — TODO (Dev FS3)
-         Construire le formulaire (membre, culture, quantité) et les zones
-         de messages. Le dev doit structurer et styliser le formulaire.
+    <aside class="sidebar"  id="sidebar" >
 
-         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-         ===================================================================== -->
-    <form id="form-livraison">
-      <select id="f-membre"><option value="">-- Choisir un membre --</option></select>
-      <select id="f-culture">
-        <option value="">-- Choisir une culture --</option>
-        <option value="Manioc">Manioc</option>
-        <option value="Maïs">Maïs</option>
-        <option value="Arachide">Arachide</option>
-      </select>
-      <input type="number" id="f-quantite" min="1" placeholder="Quantité (kg)">
-      <button type="submit">Enregistrer</button>
-    </form>
+        <div class="logo">
 
-    <div id="message-erreur-livraison" hidden></div>
-    <div id="message-succes-livraison" hidden></div>
+            <div class="logo-icon">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
 
-    <!-- =====================================================================
-         TABLEAU DES LIVRAISONS — TODO (Dev FS3)
-         Construire un tableau HTML triable. Le contenu des <tr> est injecté
-         par main.js dans le <tbody>. Le dev structure le <table>, le <thead>,
-         et le bouton de tri.
+            <div class="logo-text">
+                <h2>K30-AGRI</h2>
+                <span>Administration</span>
+            </div>
+            
+        </div>
+            <h6>Coopérative Maraîchère de Kintele</h6>
+            <br>
+        <nav>
 
-         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-         ===================================================================== -->
-    <button id="btn-trier-livraisons">Trier par date</button>
+            <ul>
 
-    <table>
-      <thead>
-        <!-- TODO (Dev FS3) : en-têtes du tableau (Membre, Culture, Quantité, Date) -->
-      </thead>
-      <tbody id="liste-livraisons"></tbody>
-    </table>
-  </main>
+                <li>
+                    <a href="../dashboard/dashboard.html">
+                     <i class="fa-solid fa-house"></i>
+                        Tableau de bord
+                    </a>
+                </li>
 
-  <!-- NE PAS MODIFIER — scripts de connexion au backend -->
-  <script src="../functions.js"></script>
-  <script src="../main.js"></script>
+                <li>
+                    <a href="../membres/membres.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        Membres
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="../livraisons/livraisons.html">
+                        <i class="fa-solid fa-truck-fast "></i>
+                        Livraisons
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../paiements/paiements.html">
+                        <i class="fa-solid fa-money-bill-1-wave"></i>
+                        Paiements
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../ventes/ventes.html">
+                        <i class="fa-solid fa-dolly"></i>
+                        Ventes et Stock
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../statistiques/statistiques.html">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        Stactistiques
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- ========================= -->
+    <!-- CONTENU -->
+    <!-- ========================= -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div class="left">
+
+                <button class="menu-btn" id="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <div class="search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Rechercher une livraison...">
+
+                </div>
+
+            </div>
+
+            <div class="right">
+
+                <button class="icon-btn">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+
+                <button class="icon-btn">
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+
+                <div class="user">
+
+                    <img
+                        src="assets/avatar.jpg"
+                        alt="Utilisateur">
+
+                    <div>
+
+                        <h4>Jean Mukendi</h4>
+                        <span>Administrateur</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+         <main class="container">
+
+        <!-- ========================= -->
+        <!-- HEADER -->
+        <!-- ========================= -->
+
+        <section class="page-header">
+
+            <div>
+                <h1>Livraisons</h1>
+                <p>Enregistrez et consultez les livraisons des membres de la coopérative.</p>
+            </div>
+
+        </section>
+
+
+        <!-- ========================= -->
+        <!-- FORMULAIRE -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <div class="card-title">
+
+                <div class="title-left">
+                    <div class="icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+
+                    <div>
+                        <h2>Enregistrer une livraison</h2>
+                        <span>Ajouter une nouvelle livraison.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <form id="form-livraison">
+
+                <div class="form-group">
+
+                    <label for="f-membre">
+                        Membre
+                    </label>
+
+                    <select id="f-membre">
+                        <option value="">-- Choisir un membre --</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="f-culture">
+                        Culture
+                    </label>
+
+                    <select id="f-culture">
+
+                        <option value="">-- Choisir une culture --</option>
+
+                        <option value="Manioc">
+                            Manioc
+                        </option>
+
+                        <option value="Maïs">
+                            Maïs
+                        </option>
+
+                        <option value="Arachide">
+                            Arachide
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="f-quantite">
+                        Quantité (Kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="f-quantite"
+                        min="1"
+                        placeholder="Ex : 150">
+
+                </div>
+
+                <button type="submit" class="btn-primary">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Enregistrer
+
+                </button>
+
+            </form>
+
+            <div id="message-erreur-livraison" hidden></div>
+
+            <div id="message-succes-livraison" hidden></div>
+
+        </section>
+
+
+
+        <!-- ========================= -->
+        <!-- TABLEAU -->
+        <!-- ========================= -->
+
+        <section class="card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>Historique des livraisons</h2>
+
+                    <span>
+                        Toutes les livraisons enregistrées.
+                    </span>
+
+                </div>
+
+                <button id="btn-trier-livraisons">
+
+                    <i class="fa-solid fa-arrow-up-wide-short"></i>
+
+                    Trier par date
+
+                </button>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Membre</th>
+
+                            <th>Culture</th>
+
+                            <th>Quantité</th>
+
+                            <th>Date</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="liste-livraisons">
+
+                        <!-- Injecté par main.js -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+    </main>
+</div>
+<script>
+    
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.querySelector(".overlay");
+
+menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+});
+
+</script>
+
+
+    <script src="../functions.js"></script>
+    <script src="../main.js"></script>
+
 </body>
+
 </html>
