@@ -117,12 +117,11 @@ display: grid;
     font-weight: 600;
     font-size: 1.1rem;
     color: var(--dark);
-    border-left: 4px solid var(--primary);
 }
 
 #total-paiements::before {
-    content: "💰 Total des paiements : ";
-    font-weight: 400;
+    content: "Total des paiements : ";
+    font-weight: bold;
     color: #4a5a6a;
 }
 
