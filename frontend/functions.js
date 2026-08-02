@@ -68,6 +68,7 @@ function compterJoursActifs(livraisonsParJour, seuil) {
                 .statut_cotisation est égal au statut demandé. */
 function filtrerMembresParStatut(membres, statut) {
   // TODO : à compléter
+  return membres.filter(membre => membre.statut_cotisation === statut);
 }
 
 
@@ -80,6 +81,14 @@ function filtrerMembresParStatut(membres, statut) {
    Astuce     : "Jean Mabiala".toLowerCase().includes("jean") -> true */
 function rechercherMembreParNom(membres, texte) {
   // TODO : à compléter
+  // Si le texte est vide, retourner tous les membres
+  if (texte === "") {
+    return membres;
+  }
+
+  return membres.filter(membre =>
+    membre.nom.toLowerCase().includes(texte.toLowerCase())
+  );
 }
 
 
@@ -96,6 +105,28 @@ function rechercherMembreParNom(membres, texte) {
                                             "Le contact est obligatoire."]} */
 function validerFormulaireNouveauMembre(donnees) {
   // TODO : à compléter
+    const erreurs = [];
+
+  if (donnees.nom.trim() === "") {
+    erreurs.push("Le nom est obligatoire.");
+  }
+
+  if (donnees.prenom.trim() === "") {
+    erreurs.push("Le prénom est obligatoire.");
+  }
+
+  if (donnees.village.trim() === "") {
+    erreurs.push("Le village est obligatoire.");
+  }
+
+  if (donnees.contact.trim() === "") {
+    erreurs.push("Le contact est obligatoire.");
+  }
+
+  return {
+    valide: erreurs.length === 0,
+    erreurs: erreurs
+  };
 }
 
 
