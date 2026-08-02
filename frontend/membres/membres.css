@@ -3,11 +3,12 @@
     margin: 0 auto;
     padding: 24px;
 } */
-.global-members-formulaire{
+.global-members-formulaire {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
 }
+
 #filtre-statut,
 #champ-recherche-membre {
     padding: 10px 12px;
@@ -41,12 +42,14 @@
 
     transition: all.1s ease-in-out;
 }
+
 .membre-ligne:hover {
-color: var(--primary-dark);
+    color: var(--primary-dark);
 
     background-color: #dcfce7;
     transform: scale(1.01);
 }
+
 .membre-ligne:last-child {
     border-bottom: none;
     /* évite une double bordure en bas de la dernière ligne */
@@ -129,9 +132,10 @@ color: var(--primary-dark);
         gap: 6px;
     }
 
-        .membre-ligne, .global-members-formulaire  {
-            display: grid;
-            grid-template-columns: 1fr;
-    
-        }
+    .membre-ligne,
+    .global-members-formulaire {
+        display: grid;
+        grid-template-columns: 1fr;
+
+    }
 }
