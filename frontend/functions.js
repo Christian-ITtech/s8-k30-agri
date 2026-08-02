@@ -33,6 +33,9 @@
    Astuce   : "  ".trim() donne une chaîne vide "". */
 function validerFormulaireLogin(donnees) {
   // TODO : à compléter
+  const nomUtilisateur = donnees.nom_utilisateur.trim();
+  const motDePasse = donnees.mot_de_passe.trim();
+  return nomUtilisateur !== "" && motDePasse !== "";
 }
 
 
