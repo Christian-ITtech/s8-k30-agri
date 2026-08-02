@@ -9,11 +9,12 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../composants/slider.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../composants/slider.css">
@@ -104,42 +105,75 @@
     <main class="main-content">
 
         <!-- HEADER -->
-    <select id="filtre-statut" class="filtre-statut">
-      <option class="option" value="">Tous</option>
-      <option class="option" value="À jour">À jour</option>
-      <option class="option" value="En retard">En retard</option>
-    </select>
+        <header class="topbar">
 
-    <input class="recherche" type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
+            <div class="left">
 
-    <!-- =====================================================================
-         LISTE DES MEMBRES — TODO (Dev FS2)
-         Le contenu est injecté par main.js. Le dev doit structurer le
-         conteneur et styliser les éléments .membre-ligne, .badge.
+                <button class="menu-btn" id="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
 
-         *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
-         ===================================================================== -->
-    <div class="liste-membres" id="liste-membres"></div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Rechercher...">
+                </div>
 
-    <!-- =====================================================================
-         NOUVEAU MEMBRE — TODO (Dev FS2)
-         Construire le formulaire de création d'un membre (module Membres,
-         nouveau — section 4.1 du FRD). Les 4 champs sont obligatoires.
-         Le village est un menu déroulant fermé (rempli par main.js depuis
-         la liste de référence de la coopérative), pas un champ libre.
+            </div>
 
-         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-         ===================================================================== -->
-    <form id="form-nouveau-membre">
-      <input type="text" id="nm-prenom" placeholder="Prénom">
-      <input type="text" id="nm-nom" placeholder="Nom">
-      <select id="nm-village"><option value="">-- Choisir un village --</option></select>
-      <input type="text" id="nm-contact" placeholder="Contact (téléphone)">
-      <button type="submit">Créer le membre</button>
-    </form>
+            <div class="right">
 
-    <div id="erreurs-nouveau-membre" hidden></div>
-    <div id="message-succes-nouveau-membre" hidden></div>
+                <button class="icon-btn">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+
+                <button class="icon-btn">
+                    <i class="fa-regular fa-envelope"></i>
+                </button>
+
+                <div class="user">
+                    <img src="../dashboard/assets/avatar.jpg" alt="Utilisateur">
+                    <div>
+                        <h4>Jean Mukendi</h4>
+                        <span>Administrateur</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+         <form id="form-nouveau-membre">
+          <input type="text" id="nm-prenom" placeholder="Prénom">
+          <input type="text" id="nm-nom" placeholder="Nom">
+          <select id="nm-village"><option value="">-- Choisir un village --</option></select>
+          <input type="text" id="nm-contact" placeholder="Contact (téléphone)">
+          <button type="submit">Créer le membre</button>
+        </form>
+
+        <div id="erreurs-nouveau-membre" hidden></div>
+        <div id="message-succes-nouveau-membre" hidden></div>
+
+        <select id="filtre-statut" class="filtre-statut">
+          <option class="option" value="">Tous</option>
+          <option class="option" value="À jour">À jour</option>
+          <option class="option" value="En retard">En retard</option>
+        </select>
+
+        <input class="recherche" type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
+
+        <!-- =====================================================================
+             LISTE DES MEMBRES
+             Le contenu est injecté par main.js.
+
+             *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
+             ===================================================================== -->
+        <div class="liste-membres" id="liste-membres"></div>
+
+        <!-- =====================================================================
+             NOUVEAU MEMBRE
+
+             *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+             ===================================================================== -->
+       
     </main>
 </div>
 <script>
