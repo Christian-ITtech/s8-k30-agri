@@ -281,8 +281,8 @@ body{
 #dashboard-cartes{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:25px;
-  margin-bottom:35px;
+  gap:18px;
+  margin-bottom:30px;
 }
 
 /* ==========================
@@ -295,11 +295,11 @@ body{
 #carte-livraisons{
   background:var(--white);
   border-radius:16px;
-  padding:25px;
-  min-height:145px;
+  padding:18px;
+  min-height:110px;
   box-shadow:var(--shadow);
   transition:var(--transition);
-  border:1px solid #F1F5F9;
+  border-left:5px solid var(--primary);
 }
 
 #carte-stock:hover,
@@ -319,17 +319,19 @@ body{
 #carte-membres h3,
 #carte-livraisons h3{
   color:var(--gray);
-  font-size:15px;
-  font-weight:600;
-  margin-bottom:18px;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:10px;
+  text-transform:uppercase;
 }
 #carte-stock h2,
 #carte-montant-du h2,
 #carte-membres h2,
 #carte-livraisons h2{
-  font-size:2rem;
+  font-size:1.7rem;
+  font-weight:800;
   color:var(--text);
-  margin-bottom:12px;
+  margin-bottom:8px;
 }
 #carte-stock p,
 #carte-montant-du p,
@@ -343,17 +345,11 @@ body{
   COULEUR LATÉRALE
 ========================== */
 
-#carte-stock{
-  border-left:6px solid #16A34A;
-}
-#carte-montant-du{
-  border-left:6px solid #2563EB;
-}
-#carte-membres{
-  border-left:6px solid #F59E0B;
-}
+#carte-stock,
+#carte-montant-du,
+#carte-membres,
 #carte-livraisons{
-  border-left:6px solid #DC2626;
+  border-left:5px solid var(--primary);
 }
 
 /* =====================================================
