@@ -72,7 +72,7 @@ button:hover{
     margin-bottom: 20px;
 }
 
-/* style tableau  */
+/* style tableau historique  */
 table{
     width:100%;
     border-collapse:collapse;
@@ -88,9 +88,7 @@ thead th{
     padding:18px;
     font-size:.9rem;
     font-weight:600;
-    color: white;
     border-bottom:1px solid #e5e7eb;
-    background-color: #4b5563;
 }
 
 tbody td{
@@ -107,3 +105,12 @@ tbody tr{
 tbody tr:hover{
     background:#f9fbfc;
 } 
+
+.card-historique{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    border:1px solid #eef1f4;
+}
