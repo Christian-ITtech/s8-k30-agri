@@ -1,30 +1,116 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AgriCoop Connect — Membres</title>
-  <link rel="stylesheet" href="membres.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgriCoop Connect — Membres</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../composants/slider.css">
+    <link rel="stylesheet" href="membres.css">
 </head>
+
 <body>
+ <div class="overlay"></div>
+<div class="dashboard">
 
-  <!-- NAVIGATION — TODO (Dev FS2) -->
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
 
-  <main>
-    <!-- =====================================================================
-         FILTRES — TODO (Dev FS2)
-         Construire une zone de filtrage : un sélecteur de statut et un champ
-         de recherche par nom. Layout responsive.
+    <aside class="sidebar"  id="sidebar" >
 
-         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-         ===================================================================== -->
-    <select id="filtre-statut">
-      <option value="">Tous</option>
-      <option value="À jour">À jour</option>
-      <option value="En retard">En retard</option>
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-seedling"></i>
+            </div>
+
+            <div class="logo-text">
+                <h2>K30-AGRI</h2>
+                <span>Administration</span>
+            </div>
+            
+        </div>
+            <h6>Coopérative Maraîchère de Kintele</h6>
+            <br>
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="../dashboard/dashboard.html">
+                     <i class="fa-solid fa-house"></i>
+                        Tableau de bord
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="../membres/membres.html">
+                        <i class="fa-solid fa-user-group"></i>
+                        Membres
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../livraisons/livraisons.html">
+                        <i class="fa-solid fa-truck-fast "></i>
+                        Livraisons
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../paiements/paiements.html">
+                        <i class="fa-solid fa-money-bill-1-wave"></i>
+                        Paiements
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../ventes/ventes.html">
+                        <i class="fa-solid fa-dolly"></i>
+                        Ventes et Stock
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../statistiques/statistiques.html">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        Stactistiques
+                    </a>
+                </li>
+
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- ========================= -->
+    <!-- CONTENU -->
+    <!-- ========================= -->
+
+    <main class="main-content">
+
+        <!-- HEADER -->
+    <select id="filtre-statut" class="filtre-statut">
+      <option class="option" value="">Tous</option>
+      <option class="option" value="À jour">À jour</option>
+      <option class="option" value="En retard">En retard</option>
     </select>
 
-    <input type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
+    <input class="recherche" type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
 
     <!-- =====================================================================
          LISTE DES MEMBRES — TODO (Dev FS2)
@@ -33,7 +119,7 @@
 
          *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
          ===================================================================== -->
-    <div id="liste-membres"></div>
+    <div class="liste-membres" id="liste-membres"></div>
 
     <!-- =====================================================================
          NOUVEAU MEMBRE — TODO (Dev FS2)
@@ -54,8 +140,31 @@
 
     <div id="erreurs-nouveau-membre" hidden></div>
     <div id="message-succes-nouveau-membre" hidden></div>
-  </main>
+    </main>
+</div>
+<script>
+    
+const menuBtn = document.getElementById("menu-btn");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.querySelector(".overlay");
 
+menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) {
+        sidebar.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+});
+</script>
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
   <script src="../functions.js"></script>
   <script src="../main.js"></script>
