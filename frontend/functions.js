@@ -166,27 +166,21 @@ function calculerTotalPaiements(paiements) {
 }
 
 
-/* [Dev FS5 — Ventes & Stock — niveau S7/S8 : condition sur un nombre]
-   Retourne un texte de badge selon la quantité disponible d'une culture.
-   Paramètre : quantiteDisponible (nombre, en kg)
-   Règles :
-     - 0 kg               -> "Épuisé"
-     - 1 à 49 kg           -> "Stock faible"
-     - 50 kg ou plus       -> "Disponible"
-   Retourne : une chaîne de caractères. */
+/* Dev FS5: condition sur un nombre */
 function getBadgeStock(quantiteDisponible) {
-  // TODO : à compléter
+   if (quantiteDisponible === 0) {
+    return "Épuisé";
+  } else if (quantiteDisponible < 50) {
+    return "Stock faible";
+  } else {
+    return "Disponible";
+  }
 }
 
-
-/* [Dev FS5 — fonction transverse — niveau S8 : propriétés d'objet + formatage]
-   Met en forme un montant en FCFA, utilisée sur presque toutes les pages
-   (tableau de bord, membres, livraisons, paiements).
-   Paramètre : montant (nombre)
-   Retourne  : une chaîne de caractères, le nombre suivi de " FCFA".
-   Exemple   : formaterMontant(23000) -> "23000 FCFA" */
+/*Dev FS5: formatage du montant */
 function formaterMontant(montant) {
-  // TODO : à compléter
+  // TODO : à 
+  return `${montant} FCFA`;
 }
 
 
