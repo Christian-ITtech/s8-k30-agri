@@ -46,15 +46,11 @@ tr td:first-child {
 
 
 
-
-
-
 .section-stat-one {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 }
-
 
 /* LES MEMBRES */
 #classement-membres {
@@ -136,7 +132,6 @@ table tr:hover {
     padding: 15px 0;
     font-family: system-ui, -apple-system, sans-serif;
 }
-
 #rapport-bailleur-contenu>span {
     display: flex;
     flex-direction: column-reverse;

@@ -27,6 +27,7 @@ body{
     --blue:#2563eb;
     --orange:#f59e0b;
     --red:#ef4444;
+    --red-hover:#bd2130;
 
     --light:#ffffff;
 
@@ -54,6 +55,34 @@ LAYOUT
 
 }
 
+
+/* ==========================
+BOUTON DE DECONNEXION
+========================== */
+#btn-deconnexion {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px 18px;
+    background-color:var(--red);
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#btn-deconnexion:hover {
+    background-color: var(--red-hover);
+}
+
+#btn-deconnexion:active {
+    transform: scale(0.98);
+}
 /* ==========================
 SIDEBAR
 ========================== */

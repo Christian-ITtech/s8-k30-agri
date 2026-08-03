@@ -1,69 +1,192 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K30-AGRI — Gestion des comptes</title>
+  <title>K30 Agri — Gestion des comptes</title>
   <link rel="stylesheet" href="comptes.css">
+  <link rel="stylesheet" href="../composants/slider.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
 
-  <!-- NAVIGATION — TODO (Dev FS2) -->
+  <div class="overlay"></div>
+  <div class="dashboard">
 
-  <main>
-    <!-- =====================================================================
-         RÉSERVÉ À LA SECRÉTAIRE — TODO (Dev FS2)
-         Cette page ne devrait être utile qu'à la Secrétaire (rôle Admin).
-         Afficher un avertissement si l'utilisateur connecté n'a pas ce
-         rôle (voir main.js : la variable de session est lue depuis le
-         stockage local du navigateur, clé "agricoop_utilisateur").
+    <!-- ========================= -->
+    <!-- SIDEBAR -->
+    <!-- ========================= -->
+    <aside class="sidebar" id="sidebar">
 
-         *** NE PAS MODIFIER l'id ci-dessous ***
-         ===================================================================== -->
-    <div id="acces-refuse-comptes" hidden></div>
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-seedling"></i>
+        </div>
+        <div class="logo-text">
+          <h2>K30-AGRI</h2>
+          <span>Administration</span>
+        </div>
+      </div>
 
-    <!-- =====================================================================
-         FORMULAIRE NOUVEAU COMPTE — TODO (Dev FS2)
-         Construire le formulaire de création de compte (nom d'utilisateur,
-         mot de passe, rôle, nom complet). Le rôle est un menu déroulant à
-         choix fermé (Président / Trésorière / Responsable dépôt / Membre —
-         la Secrétaire ne recrée pas d'autre Secrétaire depuis cet écran).
+      <h6>Coopérative Maraîchère de Kintélé</h6>
+      <br>
 
-         *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-         ===================================================================== -->
-    <form id="form-nouveau-compte">
-      <input type="text" id="c-nom-utilisateur" placeholder="Nom d'utilisateur">
-      <input type="password" id="c-mot-de-passe" placeholder="Mot de passe temporaire">
-      <input type="text" id="c-nom-complet" placeholder="Nom complet">
-      <select id="c-role">
-        <option value="">-- Choisir un rôle --</option>
-        <option value="Président">Président</option>
-        <option value="Trésorière">Trésorière</option>
-        <option value="Responsable dépôt">Responsable dépôt</option>
-        <option value="Membre">Membre</option>
-      </select>
-      <button type="submit">Créer le compte</button>
-    </form>
+      <nav>
+        <ul>
+          <li >
+            <a href="../dashboard/dashboard.html">
+              <i class="fa-solid fa-house"></i>
+              Tableau de bord
+            </a>
+          </li>
+          <li>
+            <a href="../membres/membres.html">
+              <i class="fa-solid fa-user-group"></i>
+              Membres
+            </a>
+          </li> 
+          <li class="active">
+            <a href="../comptes/comptes.html">
+              <i class="fa-solid fa-user-group"></i>
+              Comptes
+            </a>
+          </li>
+          <li>
+            <a href="../livraisons/livraisons.html">
+              <i class="fa-solid fa-truck-fast"></i>
+              Livraisons
+            </a>
+          </li>
+          <li>
+            <a href="../paiements/paiements.html">
+              <i class="fa-solid fa-money-bill-1-wave"></i>
+              Paiements
+            </a>
+          </li>
+          <li>
+            <a href="../ventes/ventes.html">
+              <i class="fa-solid fa-dolly"></i>
+              Ventes et Stock
+            </a>
+          </li>
+          <li>
+            <a href="../statistiques/statistiques.html">
+              <i class="fa-solid fa-chart-pie"></i>
+              Statistiques
+            </a>
+          </li>
+          <li>
+            <button id="btn-deconnexion"> <i class="fa-solid fa-chart-pie"></i>deconnexion</button>
+          </li>
+          
+        </ul>
+      </nav>
 
-    <div id="message-erreur-compte" hidden></div>
-    <div id="message-succes-compte" hidden></div>
+    </aside>
 
-    <!-- =====================================================================
-         LISTE DES COMPTES EXISTANTS — TODO (Dev FS2)
-         Construire un tableau. Le contenu des <tr> est injecté par main.js.
+    <!-- ========================= -->
+    <!-- CONTENU -->
+    <!-- ========================= -->
+      <!-- NAVIGATION — TODO (Dev FS2) -->
+    <main class="main-content">
 
-         *** NE PAS MODIFIER l'id ci-dessous ***
-         ===================================================================== -->
-    <table>
-      <thead>
-        <!-- TODO (Dev FS2) : en-têtes (Nom d'utilisateur, Nom complet, Rôle) -->
-      </thead>
-      <tbody id="liste-comptes"></tbody>
-    </table>
-  </main>
+      <!-- HEADER -->
+      <header class="topbar">
+
+        <div class="left">
+          <button class="menu-btn" id="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Rechercher une livraison...">
+          </div>
+        </div>
+
+        <div class="right">
+          <button class="icon-btn">
+            <i class="fa-regular fa-bell"></i>
+          </button>
+          <button class="icon-btn">
+            <i class="fa-regular fa-envelope"></i>
+          </button>
+          <div class="user">
+            <i class="fa-solid fa-user"></i>
+            <div>
+              <h4>Malonga Sandra</h4>
+              <span>Administratrice</span>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+  <!-- =====================================================================
+           RÉSERVÉ À LA SECRÉTAIRE — TODO (Dev FS2)
+           Cette page ne devrait être utile qu'à la Secrétaire (rôle Admin).
+           Afficher un avertissement si l'utilisateur connecté n'a pas ce
+           rôle (voir main.js : la variable de session est lue depuis le
+           stockage local du navigateur, clé "agricoop_utilisateur").
+  
+           *** NE PAS MODIFIER l'id ci-dessous ***
+           ===================================================================== -->
+  <div id="acces-refuse-comptes" hidden></div>
+  
+  <!-- =====================================================================
+           FORMULAIRE NOUVEAU COMPTE — TODO (Dev FS2)
+           Construire le formulaire de création de compte (nom d'utilisateur,
+           mot de passe, rôle, nom complet). Le rôle est un menu déroulant à
+           choix fermé (Président / Trésorière / Responsable dépôt / Membre —
+           la Secrétaire ne recrée pas d'autre Secrétaire depuis cet écran).
+  
+           *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
+           ===================================================================== -->
+  <form id="form-nouveau-compte">
+    <input type="text" id="c-nom-utilisateur" placeholder="Nom d'utilisateur">
+    <input type="password" id="c-mot-de-passe" placeholder="Mot de passe temporaire">
+    <input type="text" id="c-nom-complet" placeholder="Nom complet">
+    <select id="c-role">
+      <option value="">-- Choisir un rôle --</option>
+      <option value="Président">Président</option>
+      <option value="Trésorière">Trésorière</option>
+      <option value="Responsable dépôt">Responsable dépôt</option>
+      <option value="Membre">Membre</option>
+    </select>
+    <button type="submit">Créer le compte</button>
+  </form>
+  
+  <div id="message-erreur-compte" hidden></div>
+  <div id="message-succes-compte" hidden></div>
+  
+  <!-- =====================================================================
+           LISTE DES COMPTES EXISTANTS — TODO (Dev FS2)
+           Construire un tableau. Le contenu des <tr> est injecté par main.js.
+  
+           *** NE PAS MODIFIER l'id ci-dessous ***
+           ===================================================================== -->
+  <table>
+    <thead>
+      <!-- TODO (Dev FS2) : en-têtes (Nom d'utilisateur, Nom complet, Rôle) -->
+    </thead>
+    <tbody id="liste-comptes"></tbody>
+  </table>
+
+    </main>
+
+  </div>
 
   <!-- NE PAS MODIFIER — scripts de connexion au backend -->
   <script src="../functions.js"></script>
   <script src="../main.js"></script>
+  <script src="../composants/slider.js"></script>
 </body>
+
 </html>

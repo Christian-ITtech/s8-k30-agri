@@ -36,6 +36,7 @@ function validerFormulaireLogin(donnees) {
   const nomUtilisateur = donnees.nom_utilisateur.trim();
   const motDePasse = donnees.mot_de_passe.trim();
   return nomUtilisateur !== "" && motDePasse !== "";
+ 
 }
 
 
