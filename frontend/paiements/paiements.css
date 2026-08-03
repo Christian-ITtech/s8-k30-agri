@@ -5,6 +5,29 @@
 /* ============================================================
    TITRE PRINCIPAL
    ============================================================ */
+:root{
+
+    --primary:#16a34a;
+    --primary-dark:#15803d;
+
+    --blue:#2563eb;
+    --orange:#f59e0b;
+    --red:#ef4444;
+
+    --light:#ffffff;
+
+    --gray:#6b7280;
+
+    --border:#e5e7eb;
+
+    --shadow:0 8px 25px rgba(0,0,0,.06);
+
+    --radius:18px;
+
+    --gray-light:#f5f5f5;
+    --dark:#1f2937;
+
+}
 
 .main-content p {
     color: #4a5a6a;

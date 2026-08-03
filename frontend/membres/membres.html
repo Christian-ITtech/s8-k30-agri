@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriCoop Connect — Statistiques</title>
+    <title>K30-AGRI — Statistiques</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -84,7 +84,7 @@
                     <li>
                         <a href="../statistiques/statistiques.html">
                             <i class="fa-solid fa-chart-pie"></i>
-                            Stactistiques
+                            Statistiques
                         </a>
                     </li>
         
@@ -114,15 +114,22 @@
                 </div>
 
                 <div class="right">
+                    <button class="icon-btn">
+                        <i class="fa-regular fa-bell"></i>
+                    </button>
+
+                    <button class="icon-btn">
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
 
 
                     <div class="user">
 
-                        <img src="assets/avatar.jpg" alt="Utilisateur">
+                        <i class="fa-solid fa-user"></i>
 
                         <div>
 
-                            <h4>Jean Mukendi</h4>
+                            <h4>Malonga Sandra</h4>
                             <span>Administrateur</span>
 
                         </div>
@@ -135,37 +142,7 @@
             <h1>Membres</h1>
 
             <div class="global-members-formulaire">
-
-                <div class="liste-members-box">
-                        <!-- HEADER -->
-                        <select id="filtre-statut" class="filtre-statut">
-                            <option class="option" value="">Tous</option>
-                            <option class="option" value="À jour">À jour</option>
-                            <option class="option" value="En retard">En retard</option>
-                        </select>
-                        
-                        <input class="recherche" type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
-                        
-                        <!-- =====================================================================
-                                                     LISTE DES MEMBRES — TODO (Dev FS2)
-                                                     Le contenu est injecté par main.js. Le dev doit structurer le
-                                                     conteneur et styliser les éléments .membre-ligne, .badge.
-                                            
-                                                     *** NE PAS MODIFIER l'id ci-dessous — main.js l'utilise ***
-                                                     ===================================================================== -->
-                        <div class="liste-membres" id="liste-membres"></div>
-                </div>
-
-                <div class="formulaire">
-                        <!-- =====================================================================
-                                                     NOUVEAU MEMBRE — TODO (Dev FS2)
-                                                     Construire le formulaire de création d'un membre (module Membres,
-                                                     nouveau — section 4.1 du FRD). Les 4 champs sont obligatoires.
-                                                     Le village est un menu déroulant fermé (rempli par main.js depuis
-                                                     la liste de référence de la coopérative), pas un champ libre.
-                                            
-                                                     *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
-                                                     ===================================================================== -->
+                 <div class="formulaire">
                         <form id="form-nouveau-membre">
                             <input type="text" id="nm-prenom" placeholder="Prénom">
                             <input type="text" id="nm-nom" placeholder="Nom">
@@ -180,22 +157,23 @@
                         <div id="message-succes-nouveau-membre" hidden></div>
                 </div>
 
+
+                <div class="liste-members-box">
+                        <!-- HEADER -->
+                        <select id="filtre-statut" class="filtre-statut">
+                            <option class="option" value="">Tous</option>
+                            <option class="option" value="À jour">À jour</option>
+                            <option class="option" value="En retard">En retard</option>
+                        </select>
+                        
+                        <input class="recherche" type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
+                        
+                        <div class="liste-membres" id="liste-membres"></div>
+                </div>
+
             </div>
 
-               
-                    
-              
-     
-
-
-
-
-
-
-
-
         </main>
-
 
     </div>
 
