@@ -136,7 +136,10 @@ SIDEBAR
     font-size:24px;
 
 }
-
+.text-description{
+    font-size: .7rem;
+    font-weight: bold;
+}
 .logo-text h2{
 
     font-size:22px;
@@ -369,9 +372,10 @@ TOPBAR
 
 }
 
-.user h4{
+.user .text{
 
     font-size:15px;
+    font-weight: bold;
 
 }
 
