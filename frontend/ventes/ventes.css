@@ -84,54 +84,8 @@ body{
 /* Grille 2 colonnes : formulaire à gauche, tableau à droite */
 .grid-2 {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 20px;
-}
-
-/* Formulaire "Nouvelle vente" */
-#form-vente {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-#form-vente label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--dark);
-  margin-bottom: -8px;
-}
-
-#form-vente input,
-#form-vente select {
-  padding: 10px 12px;
-  border: 1.5px solid var(--border);
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-/* :focus = s'applique uniquement pendant que l'utilisateur a cliqué
-   dans ce champ précis (le curseur clignote dedans). Dès qu'il clique
-   ailleurs, ce style disparaît automatiquement. */
-#form-vente input:focus,
-#form-vente select:focus {
-  outline: none;
-  border-color: var(--primary);
-}
-
-#form-vente button {
-  background: var(--primary);
-  color: var(--light);
-  border: none;
-  padding: 12px;
-  border-radius: 9px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* --primary-dark sert précisément à ça : un vert plus foncé au survol */
-#form-vente button:hover {
-  background: var(--primary-dark);
+  grid-template-columns: 1fr;
+  flex: 1;
 }
 
 /* Tableau "Historique des ventes" */
