@@ -41,20 +41,11 @@
             <p class="text-description">Coopérative Maraîchère de Kintele</p>
             <br>
             <nav>
-
                 <ul>
-
                     <li>
                         <a href="../dashboard/dashboard.html">
                             <i class="fa-solid fa-house"></i>
                             Tableau de bord
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="../membres/membres.html">
-                            <i class="fa-solid fa-user-group"></i>
-                            Membres
                         </a>
                     </li>
 
@@ -64,11 +55,10 @@
                             Comptes
                         </a>
                     </li>
-
                     <li>
-                        <a href="../livraisons/livraisons.html">
-                            <i class="fa-solid fa-truck-fast "></i>
-                            Livraisons
+                        <a href="../membres/membres.html">
+                            <i class="fa-solid fa-user-group"></i>
+                            Membres
                         </a>
                     </li>
 
@@ -78,7 +68,6 @@
                             Paiements
                         </a>
                     </li>
-
                     <li>
                         <a href="../ventes/ventes.html">
                             <i class="fa-solid fa-dolly"></i>
@@ -86,6 +75,12 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="../livraisons/livraisons.html">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            Livraisons
+                        </a>
+                    </li>
                     <li>
                         <a href="../statistiques/statistiques.html">
                             <i class="fa-solid fa-chart-pie"></i>
@@ -98,10 +93,7 @@
                             <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
                         </button>
                     </li>
-
-
                 </ul>
-
             </nav>
 
         </aside>
@@ -122,25 +114,10 @@
                         <i class="fa-solid fa-bars"></i>
                     </button>
 
-                    <div class="search">
-
-                        <i class="fa-solid fa-magnifying-glass"></i>
-
-                        <input type="text" placeholder="Rechercher un membre...">
-
-                    </div>
 
                 </div>
 
                 <div class="right">
-
-                    <button class="icon-btn">
-                        <i class="fa-regular fa-bell"></i>
-                    </button>
-
-                    <button class="icon-btn">
-                        <i class="fa-regular fa-envelope"></i>
-                    </button>
 
                     <div class="user">
 
@@ -148,7 +125,7 @@
 
                         <div>
 
-                        <div class="text">Malonga Sandra</div>
+                            <div class="text">Malonga Sandra</div>
                             <span>Trésorière</span>
 
                         </div>
@@ -164,7 +141,7 @@
 
          *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
          ===================================================================== -->
-            <h1 >Gestion des paiements</h1>
+            <h1>Gestion des paiements</h1>
 
             <section class="global-paiement-formulaire">
 
@@ -176,13 +153,13 @@
                         <form id="form-paiement" class="champ">
                             <select id="p-membre" required>
                                 <option value="">-- Choisir un membre --</option>
-                            </select> 
+                            </select>
                             <input type="number" id="p-montant" min="1" placeholder="Montant (FCFA)" required>
                             <select id="p-mode-paiement" required>
                                 <option value="">-- Mode de paiement --</option>
                                 <option value="Espèces">Esspèces</option>
                                 <option value="Mobile Money">Mobile Money</option>
-                            </select> 
+                            </select>
                             <button type="submit">Enregistrer</button>
                         </form>
                     </div>
