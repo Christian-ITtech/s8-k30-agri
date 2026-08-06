@@ -2,33 +2,6 @@
    CSS PAIEMENTS — style identique à membres.css
    ============================================================ */
 
-/* ============================================================
-   TITRE PRINCIPAL
-   ============================================================ */
-:root{
-
-    --primary:#16a34a;
-    --primary-dark:#15803d;
-
-    --blue:#2563eb;
-    --orange:#f59e0b;
-    --red:#ef4444;
-
-    --light:#ffffff;
-
-    --gray:#6b7280;
-
-    --border:#e5e7eb;
-
-    --shadow:0 8px 25px rgba(0,0,0,.06);
-
-    --radius:18px;
-
-    --gray-light:#f5f5f5;
-    --dark:#1f2937;
-
-}
-
 .main-content p {
     color: #4a5a6a;
     font-size: 0.95rem;
@@ -36,8 +9,8 @@
 }
 
 
-.global-paiement-formulaire{
-display: grid;
+.global-paiement-formulaire {
+    display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
 
@@ -66,7 +39,7 @@ display: grid;
    FORMULAIRE (même style que #form-nouveau-membre)
    ============================================================ */
 #form-paiement {
- display: flex;
+    display: flex;
     flex-direction: column;
     gap: 1px;
     max-width: 100%;
@@ -84,8 +57,8 @@ display: grid;
     width: 100%;
     transition: border-color 0.2s ease;
     margin-bottom: .8rem;
-  
-  
+
+
 }
 
 #form-paiement select:focus,
@@ -197,9 +170,9 @@ table tbody tr {
 }
 
 table tbody tr:hover {
-        color: var(--primary-dark);
-        background-color: #dcfce7;
-        transform: scale(1.01);
+    color: var(--primary-dark);
+    background-color: #dcfce7;
+    transform: scale(1.01);
 }
 
 
@@ -214,9 +187,9 @@ table tbody tr:last-child td {
 @media (max-width: 700px) {
 
     .global-paiement-formulaire {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
+        display: grid;
+        grid-template-columns: 1fr;
+    }
 
     .main-content p {
         font-size: 0.9rem;

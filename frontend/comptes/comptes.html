@@ -41,18 +41,13 @@
 
       <nav>
         <ul>
-          <li >
+          <li>
             <a href="../dashboard/dashboard.html">
               <i class="fa-solid fa-house"></i>
               Tableau de bord
             </a>
           </li>
-          <li>
-            <a href="../membres/membres.html">
-              <i class="fa-solid fa-user-group"></i>
-              Membres
-            </a>
-          </li> 
+
           <li class="active">
             <a href="../comptes/comptes.html">
               <i class="fa-solid fa-user-group"></i>
@@ -60,11 +55,12 @@
             </a>
           </li>
           <li>
-            <a href="../livraisons/livraisons.html">
-              <i class="fa-solid fa-truck-fast"></i>
-              Livraisons
+            <a href="../membres/membres.html">
+              <i class="fa-solid fa-user-group"></i>
+              Membres
             </a>
           </li>
+
           <li>
             <a href="../paiements/paiements.html">
               <i class="fa-solid fa-money-bill-1-wave"></i>
@@ -77,19 +73,25 @@
               Ventes et Stock
             </a>
           </li>
+
+          <li>
+            <a href="../livraisons/livraisons.html">
+              <i class="fa-solid fa-truck-fast"></i>
+              Livraisons
+            </a>
+          </li>
           <li>
             <a href="../statistiques/statistiques.html">
               <i class="fa-solid fa-chart-pie"></i>
               Statistiques
             </a>
           </li>
+
           <li>
             <button id="btn-deconnexion">
               <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
             </button>
           </li>
-
-
         </ul>
       </nav>
 
@@ -98,7 +100,7 @@
     <!-- ========================= -->
     <!-- CONTENU -->
     <!-- ========================= -->
-      <!-- NAVIGATION — TODO (Dev FS2) -->
+    <!-- NAVIGATION — TODO (Dev FS2) -->
     <main class="main-content">
 
       <!-- HEADER -->
@@ -108,19 +110,10 @@
           <button class="menu-btn" id="menu-btn">
             <i class="fa-solid fa-bars"></i>
           </button>
-          <div class="search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Rechercher une livraison...">
-          </div>
         </div>
 
         <div class="right">
-          <button class="icon-btn">
-            <i class="fa-regular fa-bell"></i>
-          </button>
-          <button class="icon-btn">
-            <i class="fa-regular fa-envelope"></i>
-          </button>
+
           <div class="user">
             <i class="fa-solid fa-user"></i>
             <div>
@@ -132,7 +125,7 @@
 
       </header>
 
-  <!-- =====================================================================
+      <!-- =====================================================================
            RÉSERVÉ À LA SECRÉTAIRE — TODO (Dev FS2)
            Cette page ne devrait être utile qu'à la Secrétaire (rôle Admin).
            Afficher un avertissement si l'utilisateur connecté n'a pas ce
@@ -141,9 +134,9 @@
   
            *** NE PAS MODIFIER l'id ci-dessous ***
            ===================================================================== -->
-  <div id="acces-refuse-comptes" hidden></div>
-  
-  <!-- =====================================================================
+      <div id="acces-refuse-comptes" hidden></div>
+
+      <!-- =====================================================================
            FORMULAIRE NOUVEAU COMPTE — TODO (Dev FS2)
            Construire le formulaire de création de compte (nom d'utilisateur,
            mot de passe, rôle, nom complet). Le rôle est un menu déroulant à
@@ -152,35 +145,35 @@
   
            *** NE PAS MODIFIER les id ci-dessous — main.js les utilise ***
            ===================================================================== -->
-  <form id="form-nouveau-compte">
-    <input type="text" id="c-nom-utilisateur" placeholder="Nom d'utilisateur">
-    <input type="password" id="c-mot-de-passe" placeholder="Mot de passe temporaire">
-    <input type="text" id="c-nom-complet" placeholder="Nom complet">
-    <select id="c-role">
-      <option value="">-- Choisir un rôle --</option>
-      <option value="Président">Président</option>
-      <option value="Trésorière">Trésorière</option>
-      <option value="Responsable dépôt">Responsable dépôt</option>
-      <option value="Membre">Membre</option>
-    </select>
-    <button type="submit">Créer le compte</button>
-  </form>
-  
-  <div id="message-erreur-compte" hidden></div>
-  <div id="message-succes-compte" hidden></div>
-  
-  <!-- =====================================================================
+      <form id="form-nouveau-compte">
+        <input type="text" id="c-nom-utilisateur" placeholder="Nom d'utilisateur">
+        <input type="password" id="c-mot-de-passe" placeholder="Mot de passe temporaire">
+        <input type="text" id="c-nom-complet" placeholder="Nom complet">
+        <select id="c-role">
+          <option value="">-- Choisir un rôle --</option>
+          <option value="Président">Président</option>
+          <option value="Trésorière">Trésorière</option>
+          <option value="Responsable dépôt">Responsable dépôt</option>
+          <option value="Membre">Membre</option>
+        </select>
+        <button type="submit">Créer le compte</button>
+      </form>
+
+      <div id="message-erreur-compte" hidden></div>
+      <div id="message-succes-compte" hidden></div>
+
+      <!-- =====================================================================
            LISTE DES COMPTES EXISTANTS — TODO (Dev FS2)
            Construire un tableau. Le contenu des <tr> est injecté par main.js.
   
            *** NE PAS MODIFIER l'id ci-dessous ***
            ===================================================================== -->
-  <table>
-    <thead>
-      <!-- TODO (Dev FS2) : en-têtes (Nom d'utilisateur, Nom complet, Rôle) -->
-    </thead>
-    <tbody id="liste-comptes"></tbody>
-  </table>
+      <table>
+        <thead>
+          <!-- TODO (Dev FS2) : en-têtes (Nom d'utilisateur, Nom complet, Rôle) -->
+        </thead>
+        <tbody id="liste-comptes"></tbody>
+      </table>
 
     </main>
 

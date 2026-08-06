@@ -1,14 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f5f7fb;
-  color: var(--dark, #1f2937);
-
-}
-
 h2 {
     margin: 1.5rem 0px;
 }
@@ -18,6 +7,7 @@ article {
     background-color: white;
     box-shadow: var(--shadow);
     border-radius: var(--radius);
+    margin-bottom: 2rem;
 }
 
 /* TABLEAU DES PRODUITS */
@@ -114,7 +104,7 @@ table tr:hover {
 .meilleur-acheteur i {
     font-size: 3rem;
     color: var(--primary);
-    background-color: #dcfce7; 
+    background-color: #dcfce7;
     margin-right: 15px;
 }
 
@@ -127,15 +117,17 @@ table tr:hover {
 
 #rapport-bailleur-contenu {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: space-between;
     padding: 15px 0;
-    font-family: system-ui, -apple-system, sans-serif;
 }
+
 #rapport-bailleur-contenu>span {
     display: flex;
     flex-direction: column-reverse;
-    gap: 6px;
+    width: 24%;
+
+    text-align: center;
+    gap: 10px;
     min-width: 150px;
     padding: 16px;
     background-color: #ffffff;
@@ -143,10 +135,11 @@ table tr:hover {
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 800;
     color: #1a202c;
     line-height: 1;
+    margin: 1rem 0;
 }
 
 #rapport-bailleur-contenu>span:hover {
@@ -203,7 +196,7 @@ table tr:hover {
 
 
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:900px) {
 
     .section-stat-one {
         display: grid;
@@ -212,13 +205,9 @@ table tr:hover {
         gap: 0rem;
     }
 
-
     ol li span:first-child {
         min-width: auto;
     }
-
-
-
 
     table {
         border: 1px solid var(--gray);
@@ -230,7 +219,7 @@ table tr:hover {
     tr,
     td,
     th {
-    
+
         padding: .5rem .5rem;
 
     }
@@ -243,6 +232,18 @@ table tr:hover {
 
     }
 
+
+
+    #rapport-bailleur-contenu {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    #rapport-bailleur-contenu>span {
+
+        width: 48%;
+
+    }
 
 
 

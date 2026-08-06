@@ -1,189 +1,168 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K30 Agri — Ventes & Stock</title>
-  <link rel="stylesheet" href="ventes.css">
-  <link rel="stylesheet" href="../composants/slider.css">
 
-   <!-- Google Font -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K30 Agri — Ventes & Stock</title>
+    <link rel="stylesheet" href="ventes.css">
+    <link rel="stylesheet" href="../composants/slider.css">
+
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
 
- <div class="overlay"></div>
-<div class="dashboard">
+    <div class="overlay"></div>
+    <div class="dashboard">
 
-    <!-- ========================= -->
-    <!-- SIDEBAR -->
-    <!-- ========================= -->
+        <!-- ========================= -->
+        <!-- SIDEBAR -->
+        <!-- ========================= -->
 
-    <aside class="sidebar"  id="sidebar" >
+        <aside class="sidebar" id="sidebar">
 
-        <div class="logo">
+            <div class="logo">
 
-            <div class="logo-icon">
-                <i class="fa-solid fa-seedling"></i>
-            </div>
+                <div class="logo-icon">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
 
-            <div class="logo-text">
-                <h2>K30-AGRI</h2>
-                <span>Administration</span>
-            </div>
-            
-        </div>
-            <p class="text-description">Coopérative Maraîchère de Kintele</p>
-            <br>
-        <nav>
-
-            <ul>
-
-                <li>
-                    <a href="../dashboard/dashboard.html">
-                     <i class="fa-solid fa-house"></i>
-                        Tableau de bord
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../membres/membres.html">
-                        <i class="fa-solid fa-user-group"></i>
-                        Membres
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../comptes/comptes.html">
-                        <i class="fa-solid fa-user-group"></i>
-                        Comptes
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../livraisons/livraisons.html">
-                        <i class="fa-solid fa-truck-fast "></i>
-                        Livraisons
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../paiements/paiements.html">
-                        <i class="fa-solid fa-money-bill-1-wave"></i>
-                        Paiements
-                    </a>
-                </li>
-
-                <li class="active">
-                    <a href="../ventes/ventes.html">
-                        <i class="fa-solid fa-dolly"></i>
-                        Ventes et Stock
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../statistiques/statistiques.html">
-                        <i class="fa-solid fa-chart-pie"></i>
-                        Stactistiques
-                    </a>
-                </li>
-
-                <li>
-                    <button id="btn-deconnexion">
-                        <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
-                    </button>
-                </li>
-
-
-            </ul>
-
-        </nav>
-
-    </aside>
-
-    <!-- ========================= -->
-    <!-- CONTENU -->
-    <!-- ========================= -->
-
-    <main class="main-content">
-
-        <!-- HEADER -->
-
-        <header class="topbar">
-
-            <div class="left">
-
-                <button class="menu-btn" id="menu-btn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-                <div class="search">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                    <input
-                        type="text"
-                        placeholder="Rechercher une livraison...">
-
+                <div class="logo-text">
+                    <h2>K30-AGRI</h2>
+                    <span>Administration</span>
                 </div>
 
             </div>
+            <p class="text-description">Coopérative Maraîchère de Kintele</p>
+            <br>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../dashboard/dashboard.html">
+                            <i class="fa-solid fa-house"></i>
+                            Tableau de bord
+                        </a>
+                    </li>
 
-            <div class="right">
+                    <li>
+                        <a href="../comptes/comptes.html">
+                            <i class="fa-solid fa-user-group"></i>
+                            Comptes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../membres/membres.html">
+                            <i class="fa-solid fa-user-group"></i>
+                            Membres
+                        </a>
+                    </li>
 
-                <button class="icon-btn">
-                    <i class="fa-regular fa-bell"></i>
-                </button>
+                    <li>
+                        <a href="../paiements/paiements.html">
+                            <i class="fa-solid fa-money-bill-1-wave"></i>
+                            Paiements
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="../ventes/ventes.html">
+                            <i class="fa-solid fa-dolly"></i>
+                            Ventes et Stock
+                        </a>
+                    </li>
 
-                <button class="icon-btn">
-                    <i class="fa-regular fa-envelope"></i>
-                </button>
+                    <li>
+                        <a href="../livraisons/livraisons.html">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            Livraisons
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../statistiques/statistiques.html">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            Statistiques
+                        </a>
+                    </li>
 
-                <div class="user">
+                    <li>
+                        <button id="btn-deconnexion">
+                            <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                        </button>
+                    </li>
+                </ul>
+            </nav>
 
-                    <i class="fa-solid fa-user"></i>
+        </aside>
 
-                    <div>
+        <!-- ========================= -->
+        <!-- CONTENU -->
+        <!-- ========================= -->
 
-                        <div class="text">Malonga Sandra</div>
-                        <span>Administratrice</span>
+        <main class="main-content">
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div class="left">
+
+                    <button class="menu-btn" id="menu-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+
+
+                </div>
+
+                <div class="right">
+
+
+                    <div class="user">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <div>
+
+                            <div class="text">Malonga Sandra</div>
+                            <span>Administratrice</span>
+
+                        </div>
 
                     </div>
 
                 </div>
 
+            </header>
+
+            <div id="cartes-stock"></div>
+
+            <div class="grid-2">
+
+                <div class="card">
+                    <h2>Historique des ventes</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Acheteur</th>
+                                <th>Culture</th>
+                                <th>Quantite</th>
+                                <th>Prix/kg</th>
+                            </tr>
+                        </thead>
+                        <tbody id="liste-ventes"></tbody>
+                    </table>
+                </div>
             </div>
-
-        </header>
-  
-    <div id="cartes-stock"></div>
-
-         <div class="grid-2">
-
-    <div class="card">
-    <h2>Historique des ventes</h2>
-    <table>
-      <thead>
-          <tr>
-            <th>Acheteur</th>
-            <th>Culture</th>
-            <th>Quantite</th>
-            <th>Prix/kg</th>
-          </tr>
-      </thead>
-      <tbody id="liste-ventes"></tbody>
-    </table>
+        </main>
     </div>
-  </div>
-    </main>
-</div>
-  <script src="../functions.js"></script>
-  <script src="../main.js"></script>
-  <script src="../composants/slider.js"></script>
+    <script src="../functions.js"></script>
+    <script src="../main.js"></script>
+    <script src="../composants/slider.js"></script>
 </body>
+
 </html>

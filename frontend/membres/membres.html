@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K30-AGRI — Statistiques</title>
+    <title>K30-AGRI — Membres</title>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
@@ -27,36 +27,27 @@
         <!-- ========================= -->
 
         <aside class="sidebar" id="sidebar">
-        
+
             <div class="logo">
-        
+
                 <div class="logo-icon">
                     <i class="fa-solid fa-seedling"></i>
                 </div>
-        
+
                 <div class="logo-text">
                     <h2>K30-AGRI</h2>
                     <span>Administration</span>
                 </div>
-        
+
             </div>
             <p class="text-description">Coopérative Maraîchère de Kintele</p>
             <br>
             <nav>
-        
                 <ul>
-        
                     <li>
                         <a href="../dashboard/dashboard.html">
                             <i class="fa-solid fa-house"></i>
                             Tableau de bord
-                        </a>
-                    </li>
-        
-                    <li  class="active">
-                        <a href="../membres/membres.html">
-                            <i class="fa-solid fa-user-group"></i>
-                            Membres
                         </a>
                     </li>
 
@@ -66,45 +57,47 @@
                             Comptes
                         </a>
                     </li>
-        
-                    <li>
-                        <a href="../livraisons/livraisons.html">
-                            <i class="fa-solid fa-truck-fast "></i>
-                            Livraisons
+                    <li class="active">
+                        <a href="../membres/membres.html">
+                            <i class="fa-solid fa-user-group"></i>
+                            Membres
                         </a>
                     </li>
-        
+
                     <li>
                         <a href="../paiements/paiements.html">
                             <i class="fa-solid fa-money-bill-1-wave"></i>
                             Paiements
                         </a>
                     </li>
-        
                     <li>
                         <a href="../ventes/ventes.html">
                             <i class="fa-solid fa-dolly"></i>
                             Ventes et Stock
                         </a>
                     </li>
-        
+
+                    <li>
+                        <a href="../livraisons/livraisons.html">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            Livraisons
+                        </a>
+                    </li>
                     <li>
                         <a href="../statistiques/statistiques.html">
                             <i class="fa-solid fa-chart-pie"></i>
                             Statistiques
                         </a>
                     </li>
+
                     <li>
                         <button id="btn-deconnexion">
                             <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
                         </button>
                     </li>
-        
-        
                 </ul>
-        
             </nav>
-        
+
         </aside>
 
         <!-- ========================= -->
@@ -126,15 +119,6 @@
                 </div>
 
                 <div class="right">
-                    <button class="icon-btn">
-                        <i class="fa-regular fa-bell"></i>
-                    </button>
-
-                    <button class="icon-btn">
-                        <i class="fa-regular fa-envelope"></i>
-                    </button>
-
-
                     <div class="user">
 
                         <i class="fa-solid fa-user"></i>
@@ -154,33 +138,34 @@
             <h1>Membres</h1>
 
             <div class="global-members-formulaire">
-                 <div class="formulaire">
-                        <form id="form-nouveau-membre">
-                            <input type="text" id="nm-prenom" placeholder="Prénom">
-                            <input type="text" id="nm-nom" placeholder="Nom">
-                            <select id="nm-village">
-                                <option value="">-- Choisir un village --</option>
-                            </select>
-                            <input type="text" id="nm-contact" placeholder="Contact (téléphone)">
-                            <button type="submit">Créer le membre</button>
-                        </form>
-                        
-                        <div id="erreurs-nouveau-membre" hidden></div>
-                        <div id="message-succes-nouveau-membre" hidden></div>
+                <div class="formulaire">
+                    <form id="form-nouveau-membre">
+                        <input type="text" id="nm-prenom" placeholder="Prénom">
+                        <input type="text" id="nm-nom" placeholder="Nom">
+                        <select id="nm-village">
+                            <option value="">-- Choisir un village --</option>
+                        </select>
+                        <input type="text" id="nm-contact" placeholder="Contact (téléphone)">
+                        <button type="submit">Créer le membre</button>
+                    </form>
+
+                    <div id="erreurs-nouveau-membre" hidden></div>
+                    <div id="message-succes-nouveau-membre" hidden></div>
                 </div>
 
 
                 <div class="liste-members-box">
-                        <!-- HEADER -->
-                        <select id="filtre-statut" class="filtre-statut">
-                            <option class="option" value="">Tous</option>
-                            <option class="option" value="À jour">À jour</option>
-                            <option class="option" value="En retard">En retard</option>
-                        </select>
-                        
-                        <input class="recherche" type="text" id="champ-recherche-membre" placeholder="Rechercher un membre...">
-                        
-                        <div class="liste-membres" id="liste-membres"></div>
+                    <!-- HEADER -->
+                    <select id="filtre-statut" class="filtre-statut">
+                        <option class="option" value="">Tous</option>
+                        <option class="option" value="À jour">À jour</option>
+                        <option class="option" value="En retard">En retard</option>
+                    </select>
+
+                    <input class="recherche" type="text" id="champ-recherche-membre"
+                        placeholder="Rechercher un membre...">
+
+                    <div class="liste-membres" id="liste-membres"></div>
                 </div>
 
             </div>
